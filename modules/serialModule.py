@@ -1,4 +1,5 @@
 from numpy import array
+from zmq import device
 from files.graphical_interface import *
 from serial.tools.list_ports import comports
 from serial import Serial
@@ -13,7 +14,7 @@ def portChecker():
 class serialCOM:
     def __init__(self):
         self.telemetryConnectionStatus = False 
-        self.txBuffer = []
+        self.txBuffer = ['SM0']
         self.rxBuffer = []
 
 class serialHandler(QtCore.QThread):
@@ -30,6 +31,7 @@ class serialHandler(QtCore.QThread):
     tx_signal   = QtCore.pyqtSignal(bool)
     rx_signal   = QtCore.pyqtSignal(bool)
     latency_signal = QtCore.pyqtSignal(int)
+    mode_signal = QtCore.pyqtSignal(str)
 
     def __init__(self, port, baud, buffers, parent = None):
         super(serialHandler, self).__init__(parent)
@@ -49,8 +51,7 @@ class serialHandler(QtCore.QThread):
 
     def run(self):
         
-        while self.buffers.telemetryConnectionStatus:
-            sleep(0.001)
+        while self.buffers.telemetryConnectionStatus or len(self.buffers.txBuffer):
             
             if len(self.buffers.txBuffer) > 0:
                 self.tx_signal.emit(True)
@@ -58,6 +59,17 @@ class serialHandler(QtCore.QThread):
                 self.buffers.txBuffer.pop(0)
                 self.tx_signal.emit(False)        
             
+            # 1ms delay for prevent loop from freze
+            #sleep(0.0001)
+
+            if self.ser.inWaiting()>0: 
+                self.rx_signal.emit(True)
+                data = self.ser.readline()[:-2].decode("UTF-8")
+                if data not in ["code[200]", "code[417]"]:
+                    try: self.buffers.rxBuffer.append(loads(data))
+                    except Exception as e: pass
+                self.rx_signal.emit(False)
+        
             if len(self.buffers.rxBuffer) > 0:
                 
                 if type(self.buffers.rxBuffer[0]) == dict:
@@ -76,20 +88,19 @@ class serialHandler(QtCore.QThread):
                         else: self.angles_list[1].append(self.buffers.rxBuffer[0]['RD'])
                         self.angles.emit(self.angles_list)
 
+                    if 'GM' in self.buffers.rxBuffer[0].keys():
+                        device_mode = self.buffers.rxBuffer[0]['GM']
+                        if device_mode == 0: self.mode_signal.emit('BOOT Mode')
+                        elif device_mode == 1: self.mode_signal.emit('STABILIZED Mode')
+                        elif device_mode == 2: self.mode_signal.emit('DEBUG Mode')
+                        else: self.mode_signal.emit('ERROR Mode')
+                        
                 try: 
-                    ms = int((time() - float(self.buffers.rxBuffer[0]))*1000)
+                    ms = int((time() - float(self.buffers.rxBuffer[0]))*1000) 
                     self.latency_signal.emit(ms)
                 except : pass
 
                 self.buffers.rxBuffer.pop(0) 
-            
-            if self.ser.inWaiting()>0: 
-                self.rx_signal.emit(True)
-                data = self.ser.readline()[:-2].decode("UTF-8")
-                if data not in ["code[200]", "code[417]"]:
-                    try: self.buffers.rxBuffer.append(loads(data))
-                    except Exception as e: pass
-                self.rx_signal.emit(False)
             
             # angle check
             """if time()-self.angleLastCheckTime >= self.angleCheckInterval:

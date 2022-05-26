@@ -1121,7 +1121,7 @@ class Ui_FC(object):
         self.label = QtWidgets.QLabel(self.groupBox_2)
         self.label.setGeometry(QtCore.QRect(720, 290, 111, 51))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(".\\files\\angle_graph_info.png"))
+        self.label.setPixmap(QtGui.QPixmap("C:/Users/emirp/.designer/backup/angle_graph_info.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.groupBox_3 = QtWidgets.QGroupBox(self.tab)
@@ -1193,9 +1193,9 @@ class Ui_FC(object):
 "}")
         self.groupBox_3.setTitle("")
         self.groupBox_3.setObjectName("groupBox_3")
-        self.lvtsyn_slider = QtWidgets.QSlider(self.groupBox_3)
-        self.lvtsyn_slider.setGeometry(QtCore.QRect(80, 70, 22, 111))
-        self.lvtsyn_slider.setStyleSheet("QSlider::handle:vertical \n"
+        self.esc_1 = QtWidgets.QSlider(self.groupBox_3)
+        self.esc_1.setGeometry(QtCore.QRect(80, 70, 22, 111))
+        self.esc_1.setStyleSheet("QSlider::handle:vertical \n"
 "{\n"
 "    background-color: #404040;\n"
 "    border: 1px solid #000;\n"
@@ -1204,13 +1204,13 @@ class Ui_FC(object):
 "    margin-right: -6px;\n"
 "\n"
 "}")
-        self.lvtsyn_slider.setMaximum(100)
-        self.lvtsyn_slider.setProperty("value", 0)
-        self.lvtsyn_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.lvtsyn_slider.setObjectName("lvtsyn_slider")
-        self.motor_slider = QtWidgets.QSlider(self.groupBox_3)
-        self.motor_slider.setGeometry(QtCore.QRect(20, 70, 22, 111))
-        self.motor_slider.setStyleSheet("QSlider::handle:vertical \n"
+        self.esc_1.setMaximum(999)
+        self.esc_1.setProperty("value", 0)
+        self.esc_1.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.esc_1.setObjectName("esc_1")
+        self.total_esc = QtWidgets.QSlider(self.groupBox_3)
+        self.total_esc.setGeometry(QtCore.QRect(20, 70, 22, 111))
+        self.total_esc.setStyleSheet("QSlider::handle:vertical \n"
 "{\n"
 "    background-color: #404040;\n"
 "    border: 1px solid #000;\n"
@@ -1219,13 +1219,13 @@ class Ui_FC(object):
 "    margin-right: -6px;\n"
 "\n"
 "}")
-        self.motor_slider.setMaximum(100)
-        self.motor_slider.setProperty("value", 0)
-        self.motor_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.motor_slider.setObjectName("motor_slider")
-        self.brake_slider = QtWidgets.QSlider(self.groupBox_3)
-        self.brake_slider.setGeometry(QtCore.QRect(140, 70, 22, 111))
-        self.brake_slider.setStyleSheet("QSlider::handle:vertical \n"
+        self.total_esc.setMaximum(999)
+        self.total_esc.setProperty("value", 0)
+        self.total_esc.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.total_esc.setObjectName("total_esc")
+        self.esc_2 = QtWidgets.QSlider(self.groupBox_3)
+        self.esc_2.setGeometry(QtCore.QRect(140, 70, 22, 111))
+        self.esc_2.setStyleSheet("QSlider::handle:vertical \n"
 "{\n"
 "    background-color: #404040;\n"
 "    border: 1px solid #000;\n"
@@ -1234,28 +1234,28 @@ class Ui_FC(object):
 "    margin-right: -6px;\n"
 "\n"
 "}")
-        self.brake_slider.setMaximum(100)
-        self.brake_slider.setProperty("value", 0)
-        self.brake_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.brake_slider.setObjectName("brake_slider")
-        self.motor_slider_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
-        self.motor_slider_lcd.setGeometry(QtCore.QRect(10, 30, 41, 31))
-        self.motor_slider_lcd.setDigitCount(3)
-        self.motor_slider_lcd.setProperty("intValue", 0)
-        self.motor_slider_lcd.setObjectName("motor_slider_lcd")
-        self.lvtsyn_slider_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
-        self.lvtsyn_slider_lcd.setGeometry(QtCore.QRect(70, 30, 41, 31))
-        self.lvtsyn_slider_lcd.setDigitCount(3)
-        self.lvtsyn_slider_lcd.setProperty("intValue", 0)
-        self.lvtsyn_slider_lcd.setObjectName("lvtsyn_slider_lcd")
-        self.brake_slider_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
-        self.brake_slider_lcd.setGeometry(QtCore.QRect(130, 30, 41, 31))
-        self.brake_slider_lcd.setDigitCount(3)
-        self.brake_slider_lcd.setProperty("intValue", 0)
-        self.brake_slider_lcd.setObjectName("brake_slider_lcd")
-        self.light_slider = QtWidgets.QSlider(self.groupBox_3)
-        self.light_slider.setGeometry(QtCore.QRect(200, 70, 22, 111))
-        self.light_slider.setStyleSheet("QSlider::handle:vertical \n"
+        self.esc_2.setMaximum(999)
+        self.esc_2.setProperty("value", 0)
+        self.esc_2.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.esc_2.setObjectName("esc_2")
+        self.total_esc_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
+        self.total_esc_lcd.setGeometry(QtCore.QRect(10, 30, 41, 31))
+        self.total_esc_lcd.setDigitCount(3)
+        self.total_esc_lcd.setProperty("intValue", 0)
+        self.total_esc_lcd.setObjectName("total_esc_lcd")
+        self.esc_1_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
+        self.esc_1_lcd.setGeometry(QtCore.QRect(70, 30, 41, 31))
+        self.esc_1_lcd.setDigitCount(3)
+        self.esc_1_lcd.setProperty("intValue", 0)
+        self.esc_1_lcd.setObjectName("esc_1_lcd")
+        self.esc_2_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
+        self.esc_2_lcd.setGeometry(QtCore.QRect(130, 30, 41, 31))
+        self.esc_2_lcd.setDigitCount(3)
+        self.esc_2_lcd.setProperty("intValue", 0)
+        self.esc_2_lcd.setObjectName("esc_2_lcd")
+        self.esc_3 = QtWidgets.QSlider(self.groupBox_3)
+        self.esc_3.setGeometry(QtCore.QRect(200, 70, 22, 111))
+        self.esc_3.setStyleSheet("QSlider::handle:vertical \n"
 "{\n"
 "    background-color: #404040;\n"
 "    border: 1px solid #000;\n"
@@ -1264,15 +1264,15 @@ class Ui_FC(object):
 "    margin-right: -6px;\n"
 "\n"
 "}")
-        self.light_slider.setMaximum(100)
-        self.light_slider.setProperty("value", 0)
-        self.light_slider.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.light_slider.setObjectName("light_slider")
-        self.light_slider_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
-        self.light_slider_lcd.setGeometry(QtCore.QRect(190, 30, 41, 31))
-        self.light_slider_lcd.setDigitCount(3)
-        self.light_slider_lcd.setProperty("intValue", 0)
-        self.light_slider_lcd.setObjectName("light_slider_lcd")
+        self.esc_3.setMaximum(999)
+        self.esc_3.setProperty("value", 0)
+        self.esc_3.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.esc_3.setObjectName("esc_3")
+        self.esc_3_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
+        self.esc_3_lcd.setGeometry(QtCore.QRect(190, 30, 41, 31))
+        self.esc_3_lcd.setDigitCount(3)
+        self.esc_3_lcd.setProperty("intValue", 0)
+        self.esc_3_lcd.setObjectName("esc_3_lcd")
         self.line = QtWidgets.QFrame(self.groupBox_3)
         self.line.setGeometry(QtCore.QRect(54, 21, 16, 199))
         self.line.setFrameShape(QtWidgets.QFrame.Shape.VLine)
@@ -1288,34 +1288,34 @@ class Ui_FC(object):
         self.line_3.setFrameShape(QtWidgets.QFrame.Shape.VLine)
         self.line_3.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
         self.line_3.setObjectName("line_3")
-        self.motor_slider_text = QtWidgets.QLabel(self.groupBox_3)
-        self.motor_slider_text.setGeometry(QtCore.QRect(15, 190, 41, 16))
-        self.motor_slider_text.setObjectName("motor_slider_text")
-        self.lvtsyn_slider_text = QtWidgets.QLabel(self.groupBox_3)
-        self.lvtsyn_slider_text.setGeometry(QtCore.QRect(77, 190, 41, 16))
-        self.lvtsyn_slider_text.setObjectName("lvtsyn_slider_text")
-        self.brake_slider_text = QtWidgets.QLabel(self.groupBox_3)
-        self.brake_slider_text.setGeometry(QtCore.QRect(137, 190, 41, 16))
-        self.brake_slider_text.setObjectName("brake_slider_text")
-        self.light_slider_text = QtWidgets.QLabel(self.groupBox_3)
-        self.light_slider_text.setGeometry(QtCore.QRect(196, 190, 41, 16))
-        self.light_slider_text.setObjectName("light_slider_text")
+        self.total_esc_text = QtWidgets.QLabel(self.groupBox_3)
+        self.total_esc_text.setGeometry(QtCore.QRect(15, 190, 41, 16))
+        self.total_esc_text.setObjectName("total_esc_text")
+        self.esc_1_text = QtWidgets.QLabel(self.groupBox_3)
+        self.esc_1_text.setGeometry(QtCore.QRect(77, 190, 41, 16))
+        self.esc_1_text.setObjectName("esc_1_text")
+        self.esc_2_text = QtWidgets.QLabel(self.groupBox_3)
+        self.esc_2_text.setGeometry(QtCore.QRect(137, 190, 41, 16))
+        self.esc_2_text.setObjectName("esc_2_text")
+        self.esc_3_text = QtWidgets.QLabel(self.groupBox_3)
+        self.esc_3_text.setGeometry(QtCore.QRect(196, 190, 41, 16))
+        self.esc_3_text.setObjectName("esc_3_text")
         self.line_4 = QtWidgets.QFrame(self.groupBox_3)
         self.line_4.setGeometry(QtCore.QRect(231, 21, 16, 199))
         self.line_4.setFrameShape(QtWidgets.QFrame.Shape.VLine)
         self.line_4.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
         self.line_4.setObjectName("line_4")
-        self.light_slider_text_2 = QtWidgets.QLabel(self.groupBox_3)
-        self.light_slider_text_2.setGeometry(QtCore.QRect(254, 190, 31, 16))
-        self.light_slider_text_2.setObjectName("light_slider_text_2")
-        self.light_slider_lcd_2 = QtWidgets.QLCDNumber(self.groupBox_3)
-        self.light_slider_lcd_2.setGeometry(QtCore.QRect(250, 30, 41, 31))
-        self.light_slider_lcd_2.setDigitCount(3)
-        self.light_slider_lcd_2.setProperty("intValue", 0)
-        self.light_slider_lcd_2.setObjectName("light_slider_lcd_2")
-        self.light_slider_2 = QtWidgets.QSlider(self.groupBox_3)
-        self.light_slider_2.setGeometry(QtCore.QRect(260, 70, 22, 111))
-        self.light_slider_2.setStyleSheet("QSlider::handle:vertical \n"
+        self.esc_4_text = QtWidgets.QLabel(self.groupBox_3)
+        self.esc_4_text.setGeometry(QtCore.QRect(254, 190, 31, 16))
+        self.esc_4_text.setObjectName("esc_4_text")
+        self.esc_4_lcd = QtWidgets.QLCDNumber(self.groupBox_3)
+        self.esc_4_lcd.setGeometry(QtCore.QRect(250, 30, 41, 31))
+        self.esc_4_lcd.setDigitCount(3)
+        self.esc_4_lcd.setProperty("intValue", 0)
+        self.esc_4_lcd.setObjectName("esc_4_lcd")
+        self.esc_4 = QtWidgets.QSlider(self.groupBox_3)
+        self.esc_4.setGeometry(QtCore.QRect(260, 70, 22, 111))
+        self.esc_4.setStyleSheet("QSlider::handle:vertical \n"
 "{\n"
 "    background-color: #404040;\n"
 "    border: 1px solid #000;\n"
@@ -1324,29 +1324,29 @@ class Ui_FC(object):
 "    margin-right: -6px;\n"
 "\n"
 "}")
-        self.light_slider_2.setMaximum(100)
-        self.light_slider_2.setProperty("value", 0)
-        self.light_slider_2.setOrientation(QtCore.Qt.Orientation.Vertical)
-        self.light_slider_2.setObjectName("light_slider_2")
-        self.lvtsyn_slider.raise_()
-        self.motor_slider.raise_()
-        self.brake_slider.raise_()
-        self.light_slider.raise_()
+        self.esc_4.setMaximum(999)
+        self.esc_4.setProperty("value", 0)
+        self.esc_4.setOrientation(QtCore.Qt.Orientation.Vertical)
+        self.esc_4.setObjectName("esc_4")
+        self.esc_1.raise_()
+        self.total_esc.raise_()
+        self.esc_2.raise_()
+        self.esc_3.raise_()
         self.line.raise_()
-        self.motor_slider_lcd.raise_()
+        self.total_esc_lcd.raise_()
         self.line_2.raise_()
         self.line_3.raise_()
-        self.light_slider_lcd.raise_()
-        self.lvtsyn_slider_lcd.raise_()
-        self.brake_slider_lcd.raise_()
-        self.motor_slider_text.raise_()
-        self.lvtsyn_slider_text.raise_()
-        self.brake_slider_text.raise_()
-        self.light_slider_text.raise_()
+        self.esc_3_lcd.raise_()
+        self.esc_1_lcd.raise_()
+        self.esc_2_lcd.raise_()
+        self.total_esc_text.raise_()
+        self.esc_1_text.raise_()
+        self.esc_2_text.raise_()
+        self.esc_3_text.raise_()
         self.line_4.raise_()
-        self.light_slider_text_2.raise_()
-        self.light_slider_lcd_2.raise_()
-        self.light_slider_2.raise_()
+        self.esc_4_text.raise_()
+        self.esc_4_lcd.raise_()
+        self.esc_4.raise_()
         self.groupBox_4 = QtWidgets.QGroupBox(self.tab)
         self.groupBox_4.setGeometry(QtCore.QRect(10, 40, 561, 221))
         self.groupBox_4.setTitle("")
@@ -1522,26 +1522,26 @@ class Ui_FC(object):
         self.pid_get_values_button.setGeometry(QtCore.QRect(40, 175, 191, 31))
         self.pid_get_values_button.setObjectName("pid_get_values_button")
         self.pid_configurate_button = QtWidgets.QPushButton(self.groupBox_4)
-        self.pid_configurate_button.setGeometry(QtCore.QRect(300, 175, 92, 31))
+        self.pid_configurate_button.setGeometry(QtCore.QRect(240, 175, 92, 31))
         self.pid_configurate_button.setObjectName("pid_configurate_button")
-        self.horizontalSlider = QtWidgets.QSlider(self.groupBox_4)
-        self.horizontalSlider.setGeometry(QtCore.QRect(250, 60, 291, 22))
-        self.horizontalSlider.setMaximum(300)
-        self.horizontalSlider.setProperty("value", 61)
-        self.horizontalSlider.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.horizontalSlider.setObjectName("horizontalSlider")
-        self.horizontalSlider_2 = QtWidgets.QSlider(self.groupBox_4)
-        self.horizontalSlider_2.setGeometry(QtCore.QRect(250, 100, 291, 22))
-        self.horizontalSlider_2.setMaximum(100)
-        self.horizontalSlider_2.setProperty("value", 18)
-        self.horizontalSlider_2.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.horizontalSlider_2.setObjectName("horizontalSlider_2")
-        self.horizontalSlider_3 = QtWidgets.QSlider(self.groupBox_4)
-        self.horizontalSlider_3.setGeometry(QtCore.QRect(250, 140, 291, 22))
-        self.horizontalSlider_3.setMaximum(200)
-        self.horizontalSlider_3.setProperty("value", 100)
-        self.horizontalSlider_3.setOrientation(QtCore.Qt.Orientation.Horizontal)
-        self.horizontalSlider_3.setObjectName("horizontalSlider_3")
+        self.pid_p_slider = QtWidgets.QSlider(self.groupBox_4)
+        self.pid_p_slider.setGeometry(QtCore.QRect(250, 60, 291, 22))
+        self.pid_p_slider.setMaximum(300)
+        self.pid_p_slider.setProperty("value", 61)
+        self.pid_p_slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
+        self.pid_p_slider.setObjectName("pid_p_slider")
+        self.pid_i_slider = QtWidgets.QSlider(self.groupBox_4)
+        self.pid_i_slider.setGeometry(QtCore.QRect(250, 100, 291, 22))
+        self.pid_i_slider.setMaximum(100)
+        self.pid_i_slider.setProperty("value", 18)
+        self.pid_i_slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
+        self.pid_i_slider.setObjectName("pid_i_slider")
+        self.pid_d_slider = QtWidgets.QSlider(self.groupBox_4)
+        self.pid_d_slider.setGeometry(QtCore.QRect(250, 140, 291, 22))
+        self.pid_d_slider.setMaximum(200)
+        self.pid_d_slider.setProperty("value", 100)
+        self.pid_d_slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
+        self.pid_d_slider.setObjectName("pid_d_slider")
         self.label_2 = QtWidgets.QLabel(self.groupBox_4)
         self.label_2.setGeometry(QtCore.QRect(250, 50, 49, 16))
         self.label_2.setObjectName("label_2")
@@ -1561,8 +1561,11 @@ class Ui_FC(object):
         self.label_7.setGeometry(QtCore.QRect(524, 130, 49, 16))
         self.label_7.setObjectName("label_7")
         self.pid_lock_unlock_button = QtWidgets.QPushButton(self.groupBox_4)
-        self.pid_lock_unlock_button.setGeometry(QtCore.QRect(400, 175, 92, 31))
+        self.pid_lock_unlock_button.setGeometry(QtCore.QRect(340, 175, 92, 31))
         self.pid_lock_unlock_button.setObjectName("pid_lock_unlock_button")
+        self.calibrate_esc_button = QtWidgets.QPushButton(self.groupBox_4)
+        self.calibrate_esc_button.setGeometry(QtCore.QRect(440, 175, 101, 31))
+        self.calibrate_esc_button.setObjectName("calibrate_esc_button")
         self.sensor_verileri_title_27 = QtWidgets.QLabel(self.tab)
         self.sensor_verileri_title_27.setGeometry(QtCore.QRect(210, 10, 181, 41))
         self.sensor_verileri_title_27.setStyleSheet("QLabel\n"
@@ -1583,6 +1586,332 @@ class Ui_FC(object):
 "    font-weight: bold;\n"
 "}")
         self.sensor_verileri_title_28.setObjectName("sensor_verileri_title_28")
+        self.groupBox_5 = QtWidgets.QGroupBox(self.tab)
+        self.groupBox_5.setGeometry(QtCore.QRect(890, 40, 321, 571))
+        self.groupBox_5.setTitle("")
+        self.groupBox_5.setObjectName("groupBox_5")
+        self.z1_6 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1_6.setEnabled(False)
+        self.z1_6.setGeometry(QtCore.QRect(160, 60, 137, 41))
+        self.z1_6.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1_6.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1_6.setText("")
+        self.z1_6.setScaledContents(False)
+        self.z1_6.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1_6.setObjectName("z1_6")
+        self.channel_5_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_5_title.setGeometry(QtCore.QRect(20, 473, 161, 21))
+        self.channel_5_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_5_title.setObjectName("channel_5_title")
+        self.channel_2_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_2_text.setEnabled(False)
+        self.channel_2_text.setGeometry(QtCore.QRect(20, 233, 141, 41))
+        self.channel_2_text.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_2_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_2_text.setScaledContents(False)
+        self.channel_2_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_2_text.setObjectName("channel_2_text")
+        self.channel_5_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_5_text.setEnabled(False)
+        self.channel_5_text.setGeometry(QtCore.QRect(17, 500, 141, 41))
+        self.channel_5_text.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_5_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_5_text.setScaledContents(False)
+        self.channel_5_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_5_text.setObjectName("channel_5_text")
+        self.channel_1_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_1_title.setGeometry(QtCore.QRect(23, 116, 161, 21))
+        self.channel_1_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_1_title.setObjectName("channel_1_title")
+        self.channel_1_plot = PlotWidget(self.groupBox_5)
+        self.channel_1_plot.setEnabled(False)
+        self.channel_1_plot.setGeometry(QtCore.QRect(163, 146, 131, 35))
+        self.channel_1_plot.setObjectName("channel_1_plot")
+        self.channel_4_plot = PlotWidget(self.groupBox_5)
+        self.channel_4_plot.setEnabled(False)
+        self.channel_4_plot.setGeometry(QtCore.QRect(163, 416, 131, 35))
+        self.channel_4_plot.setObjectName("channel_4_plot")
+        self.z1_2 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1_2.setEnabled(False)
+        self.z1_2.setGeometry(QtCore.QRect(160, 413, 137, 41))
+        self.z1_2.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1_2.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1_2.setText("")
+        self.z1_2.setScaledContents(False)
+        self.z1_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1_2.setObjectName("z1_2")
+        self.channel_0_plot = PlotWidget(self.groupBox_5)
+        self.channel_0_plot.setEnabled(False)
+        self.channel_0_plot.setGeometry(QtCore.QRect(163, 63, 131, 35))
+        self.channel_0_plot.setObjectName("channel_0_plot")
+        self.channel_0_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_0_title.setGeometry(QtCore.QRect(23, 33, 161, 21))
+        self.channel_0_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_0_title.setObjectName("channel_0_title")
+        self.channel_4_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_4_title.setGeometry(QtCore.QRect(23, 386, 161, 21))
+        self.channel_4_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_4_title.setObjectName("channel_4_title")
+        self.channel_2_plot = PlotWidget(self.groupBox_5)
+        self.channel_2_plot.setEnabled(False)
+        self.channel_2_plot.setGeometry(QtCore.QRect(163, 236, 131, 35))
+        self.channel_2_plot.setObjectName("channel_2_plot")
+        self.channel_4_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_4_text.setEnabled(False)
+        self.channel_4_text.setGeometry(QtCore.QRect(20, 413, 141, 41))
+        self.channel_4_text.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_4_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_4_text.setScaledContents(False)
+        self.channel_4_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_4_text.setObjectName("channel_4_text")
+        self.channel_0_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_0_text.setEnabled(False)
+        self.channel_0_text.setGeometry(QtCore.QRect(20, 60, 141, 41))
+        self.channel_0_text.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_0_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_0_text.setScaledContents(False)
+        self.channel_0_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_0_text.setObjectName("channel_0_text")
+        self.channel_3_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_3_title.setGeometry(QtCore.QRect(23, 296, 161, 21))
+        self.channel_3_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_3_title.setObjectName("channel_3_title")
+        self.z1 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1.setEnabled(False)
+        self.z1.setGeometry(QtCore.QRect(157, 500, 137, 41))
+        self.z1.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1.setText("")
+        self.z1.setScaledContents(False)
+        self.z1.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1.setObjectName("z1")
+        self.channel_2_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_2_title.setGeometry(QtCore.QRect(23, 206, 161, 21))
+        self.channel_2_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_2_title.setObjectName("channel_2_title")
+        self.channel_1_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_1_text.setEnabled(False)
+        self.channel_1_text.setGeometry(QtCore.QRect(20, 143, 141, 41))
+        self.channel_1_text.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_1_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_1_text.setScaledContents(False)
+        self.channel_1_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_1_text.setObjectName("channel_1_text")
+        self.z1_4 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1_4.setEnabled(False)
+        self.z1_4.setGeometry(QtCore.QRect(160, 233, 137, 41))
+        self.z1_4.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1_4.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1_4.setText("")
+        self.z1_4.setScaledContents(False)
+        self.z1_4.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1_4.setObjectName("z1_4")
+        self.channel_3_plot = PlotWidget(self.groupBox_5)
+        self.channel_3_plot.setEnabled(False)
+        self.channel_3_plot.setGeometry(QtCore.QRect(163, 326, 131, 35))
+        self.channel_3_plot.setObjectName("channel_3_plot")
+        self.channel_5_plot = PlotWidget(self.groupBox_5)
+        self.channel_5_plot.setEnabled(False)
+        self.channel_5_plot.setGeometry(QtCore.QRect(160, 503, 131, 35))
+        self.channel_5_plot.setObjectName("channel_5_plot")
+        self.channel_3_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_3_text.setEnabled(False)
+        self.channel_3_text.setGeometry(QtCore.QRect(20, 323, 141, 41))
+        self.channel_3_text.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_3_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_3_text.setScaledContents(False)
+        self.channel_3_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_3_text.setObjectName("channel_3_text")
+        self.z1_3 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1_3.setEnabled(False)
+        self.z1_3.setGeometry(QtCore.QRect(160, 323, 137, 41))
+        self.z1_3.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1_3.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1_3.setText("")
+        self.z1_3.setScaledContents(False)
+        self.z1_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1_3.setObjectName("z1_3")
+        self.z1_5 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1_5.setEnabled(False)
+        self.z1_5.setGeometry(QtCore.QRect(160, 143, 137, 41))
+        self.z1_5.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1_5.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1_5.setText("")
+        self.z1_5.setScaledContents(False)
+        self.z1_5.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1_5.setObjectName("z1_5")
+        self.sensor_verileri_title_29 = QtWidgets.QLabel(self.tab)
+        self.sensor_verileri_title_29.setGeometry(QtCore.QRect(960, 10, 211, 41))
+        self.sensor_verileri_title_29.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 15pt;\n"
+"    font-weight: bold;\n"
+"}")
+        self.sensor_verileri_title_29.setObjectName("sensor_verileri_title_29")
         self.tabWidget.addTab(self.tab, "")
         self.widget = QtWidgets.QWidget()
         self.widget.setObjectName("widget")
@@ -1635,11 +1964,11 @@ class Ui_FC(object):
         self.latencyArayuz.setText(_translate("FC", "0"))
         self.latencyArayuzTitle.setText(_translate("FC", "  MS"))
         self.deviceModeTitle_2.setText(_translate("FC", "Com Buffers :"))
-        self.motor_slider_text.setText(_translate("FC", "TOTAL"))
-        self.lvtsyn_slider_text.setText(_translate("FC", "ESC 1"))
-        self.brake_slider_text.setText(_translate("FC", "ESC 2"))
-        self.light_slider_text.setText(_translate("FC", "ESC 3"))
-        self.light_slider_text_2.setText(_translate("FC", "ESC 4"))
+        self.total_esc_text.setText(_translate("FC", "TOTAL"))
+        self.esc_1_text.setText(_translate("FC", "ESC 1"))
+        self.esc_2_text.setText(_translate("FC", "ESC 2"))
+        self.esc_3_text.setText(_translate("FC", "ESC 3"))
+        self.esc_4_text.setText(_translate("FC", "ESC 4"))
         self.hiz_title.setText(_translate("FC", "Pitch"))
         self.hiz_text_4.setText(_translate("FC", "0.00018"))
         self.hiz_text_2.setText(_translate("FC", "0.00018"))
@@ -1660,8 +1989,22 @@ class Ui_FC(object):
         self.label_6.setText(_translate("FC", "0"))
         self.label_7.setText(_translate("FC", "200"))
         self.pid_lock_unlock_button.setText(_translate("FC", "Unlock"))
+        self.calibrate_esc_button.setText(_translate("FC", "Calibrate ESC"))
         self.sensor_verileri_title_27.setText(_translate("FC", "PID Configurations"))
         self.sensor_verileri_title_28.setText(_translate("FC", "ESC Configurations"))
+        self.channel_5_title.setText(_translate("FC", "Channel 5"))
+        self.channel_2_text.setText(_translate("FC", "0"))
+        self.channel_5_text.setText(_translate("FC", "0"))
+        self.channel_1_title.setText(_translate("FC", "Channel 1"))
+        self.channel_0_title.setText(_translate("FC", "Channel 0"))
+        self.channel_4_title.setText(_translate("FC", "Channel 4"))
+        self.channel_4_text.setText(_translate("FC", "0"))
+        self.channel_0_text.setText(_translate("FC", "0"))
+        self.channel_3_title.setText(_translate("FC", "Channel 3"))
+        self.channel_2_title.setText(_translate("FC", "Channel 2"))
+        self.channel_1_text.setText(_translate("FC", "0"))
+        self.channel_3_text.setText(_translate("FC", "0"))
+        self.sensor_verileri_title_29.setText(_translate("FC", "Receiver Channels"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("FC", "FC Configurations"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.widget), _translate("FC", "Mission Planner"))
         self.arm_button.setText(_translate("FC", "ARM"))
