@@ -1910,7 +1910,7 @@ QSlider::handle:horizontal:disabled
         <string>Pitch</string>
        </property>
       </widget>
-      <widget class="QLabel" name="hiz_text_4">
+      <widget class="QLabel" name="roll_i_text">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -1938,7 +1938,7 @@ QSlider::handle:horizontal:disabled
         <enum>QFrame::Box</enum>
        </property>
        <property name="text">
-        <string>0.00018</string>
+        <string>0</string>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -1947,7 +1947,7 @@ QSlider::handle:horizontal:disabled
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QLabel" name="hiz_text_2">
+      <widget class="QLabel" name="pitch_i_text">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -1975,7 +1975,7 @@ QSlider::handle:horizontal:disabled
         <enum>QFrame::Box</enum>
        </property>
        <property name="text">
-        <string>0.00018</string>
+        <string>0</string>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -2034,7 +2034,7 @@ QSlider::handle:horizontal:disabled
         <string>I</string>
        </property>
       </widget>
-      <widget class="QLabel" name="hiz_text_6">
+      <widget class="QLabel" name="roll_p_text">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -2062,7 +2062,7 @@ QSlider::handle:horizontal:disabled
         <enum>QFrame::Box</enum>
        </property>
        <property name="text">
-        <string>0.61</string>
+        <string>0</string>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -2096,7 +2096,7 @@ QSlider::handle:horizontal:disabled
         <string>D</string>
        </property>
       </widget>
-      <widget class="QLabel" name="hiz_text_5">
+      <widget class="QLabel" name="roll_d_text">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -2124,7 +2124,7 @@ QSlider::handle:horizontal:disabled
         <enum>QFrame::Box</enum>
        </property>
        <property name="text">
-        <string>100</string>
+        <string>0</string>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -2133,7 +2133,7 @@ QSlider::handle:horizontal:disabled
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QLabel" name="hiz_text_3">
+      <widget class="QLabel" name="pitch_d_text">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -2161,7 +2161,7 @@ QSlider::handle:horizontal:disabled
         <enum>QFrame::Box</enum>
        </property>
        <property name="text">
-        <string>100</string>
+        <string>0</string>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -2170,7 +2170,7 @@ QSlider::handle:horizontal:disabled
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
-      <widget class="QLabel" name="hiz_text">
+      <widget class="QLabel" name="pitch_p_text">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -2198,7 +2198,7 @@ QSlider::handle:horizontal:disabled
         <enum>QFrame::Box</enum>
        </property>
        <property name="text">
-        <string>0.61</string>
+        <string>0</string>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -2245,19 +2245,6 @@ QSlider::handle:horizontal:disabled
         <string>Get Values</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pid_configurate_button">
-       <property name="geometry">
-        <rect>
-         <x>240</x>
-         <y>175</y>
-         <width>92</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Configurate</string>
-       </property>
-      </widget>
       <widget class="QSlider" name="pid_p_slider">
        <property name="geometry">
         <rect>
@@ -2268,10 +2255,16 @@ QSlider::handle:horizontal:disabled
         </rect>
        </property>
        <property name="maximum">
-        <number>300</number>
+        <number>1000</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
        </property>
        <property name="value">
-        <number>61</number>
+        <number>0</number>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2287,10 +2280,13 @@ QSlider::handle:horizontal:disabled
         </rect>
        </property>
        <property name="maximum">
-        <number>100</number>
+        <number>10000</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
        </property>
        <property name="value">
-        <number>18</number>
+        <number>0</number>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2306,10 +2302,13 @@ QSlider::handle:horizontal:disabled
         </rect>
        </property>
        <property name="maximum">
-        <number>200</number>
+        <number>1000</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
        </property>
        <property name="value">
-        <number>100</number>
+        <number>0</number>
        </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -2331,14 +2330,14 @@ QSlider::handle:horizontal:disabled
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>536</x>
+         <x>528</x>
          <y>50</y>
          <width>49</width>
          <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>3</string>
+        <string>10</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_4">
@@ -2357,14 +2356,14 @@ QSlider::handle:horizontal:disabled
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>517</x>
+         <x>520</x>
          <y>90</y>
          <width>49</width>
          <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>0.001</string>
+        <string>0.01</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_6">
@@ -2383,20 +2382,20 @@ QSlider::handle:horizontal:disabled
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>524</x>
+         <x>517</x>
          <y>130</y>
          <width>49</width>
          <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>200</string>
+        <string>1000</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pid_lock_unlock_button">
        <property name="geometry">
         <rect>
-         <x>340</x>
+         <x>300</x>
          <y>175</y>
          <width>92</width>
          <height>31</height>
@@ -2406,17 +2405,17 @@ QSlider::handle:horizontal:disabled
         <string>Unlock</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="calibrate_esc_button">
+      <widget class="QPushButton" name="set_default_pid">
        <property name="geometry">
         <rect>
-         <x>440</x>
+         <x>400</x>
          <y>175</y>
          <width>101</width>
          <height>31</height>
         </rect>
        </property>
        <property name="text">
-        <string>Calibrate ESC</string>
+        <string>Set Default PID</string>
        </property>
       </widget>
      </widget>

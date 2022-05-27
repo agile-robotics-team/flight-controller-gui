@@ -1364,10 +1364,10 @@ class Ui_FC(object):
 "\n"
 "}")
         self.hiz_title.setObjectName("hiz_title")
-        self.hiz_text_4 = QtWidgets.QLabel(self.groupBox_4)
-        self.hiz_text_4.setEnabled(False)
-        self.hiz_text_4.setGeometry(QtCore.QRect(140, 95, 91, 31))
-        self.hiz_text_4.setStyleSheet("QLabel\n"
+        self.roll_i_text = QtWidgets.QLabel(self.groupBox_4)
+        self.roll_i_text.setEnabled(False)
+        self.roll_i_text.setGeometry(QtCore.QRect(140, 95, 91, 31))
+        self.roll_i_text.setStyleSheet("QLabel\n"
 "{\n"
 "    font-family: Arial;\n"
 "    font-style: normal;\n"
@@ -1377,14 +1377,14 @@ class Ui_FC(object):
 "    color: #fff;\n"
 "\n"
 "}")
-        self.hiz_text_4.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.hiz_text_4.setScaledContents(False)
-        self.hiz_text_4.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.hiz_text_4.setObjectName("hiz_text_4")
-        self.hiz_text_2 = QtWidgets.QLabel(self.groupBox_4)
-        self.hiz_text_2.setEnabled(False)
-        self.hiz_text_2.setGeometry(QtCore.QRect(40, 95, 91, 31))
-        self.hiz_text_2.setStyleSheet("QLabel\n"
+        self.roll_i_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.roll_i_text.setScaledContents(False)
+        self.roll_i_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.roll_i_text.setObjectName("roll_i_text")
+        self.pitch_i_text = QtWidgets.QLabel(self.groupBox_4)
+        self.pitch_i_text.setEnabled(False)
+        self.pitch_i_text.setGeometry(QtCore.QRect(40, 95, 91, 31))
+        self.pitch_i_text.setStyleSheet("QLabel\n"
 "{\n"
 "    font-family: Arial;\n"
 "    font-style: normal;\n"
@@ -1394,10 +1394,10 @@ class Ui_FC(object):
 "    color: #fff;\n"
 "\n"
 "}")
-        self.hiz_text_2.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.hiz_text_2.setScaledContents(False)
-        self.hiz_text_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.hiz_text_2.setObjectName("hiz_text_2")
+        self.pitch_i_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.pitch_i_text.setScaledContents(False)
+        self.pitch_i_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.pitch_i_text.setObjectName("pitch_i_text")
         self.hiz_title_3 = QtWidgets.QLabel(self.groupBox_4)
         self.hiz_title_3.setGeometry(QtCore.QRect(20, 60, 16, 21))
         self.hiz_title_3.setStyleSheet("QLabel\n"
@@ -1424,10 +1424,10 @@ class Ui_FC(object):
 "\n"
 "}")
         self.hiz_title_4.setObjectName("hiz_title_4")
-        self.hiz_text_6 = QtWidgets.QLabel(self.groupBox_4)
-        self.hiz_text_6.setEnabled(False)
-        self.hiz_text_6.setGeometry(QtCore.QRect(140, 55, 91, 31))
-        self.hiz_text_6.setStyleSheet("QLabel\n"
+        self.roll_p_text = QtWidgets.QLabel(self.groupBox_4)
+        self.roll_p_text.setEnabled(False)
+        self.roll_p_text.setGeometry(QtCore.QRect(140, 55, 91, 31))
+        self.roll_p_text.setStyleSheet("QLabel\n"
 "{\n"
 "    font-family: Arial;\n"
 "    font-style: normal;\n"
@@ -1437,10 +1437,10 @@ class Ui_FC(object):
 "    color: #fff;\n"
 "\n"
 "}")
-        self.hiz_text_6.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.hiz_text_6.setScaledContents(False)
-        self.hiz_text_6.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.hiz_text_6.setObjectName("hiz_text_6")
+        self.roll_p_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.roll_p_text.setScaledContents(False)
+        self.roll_p_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.roll_p_text.setObjectName("roll_p_text")
         self.hiz_title_5 = QtWidgets.QLabel(self.groupBox_4)
         self.hiz_title_5.setGeometry(QtCore.QRect(20, 140, 16, 21))
         self.hiz_title_5.setStyleSheet("QLabel\n"
@@ -1454,10 +1454,10 @@ class Ui_FC(object):
 "\n"
 "}")
         self.hiz_title_5.setObjectName("hiz_title_5")
-        self.hiz_text_5 = QtWidgets.QLabel(self.groupBox_4)
-        self.hiz_text_5.setEnabled(False)
-        self.hiz_text_5.setGeometry(QtCore.QRect(140, 135, 91, 31))
-        self.hiz_text_5.setStyleSheet("QLabel\n"
+        self.roll_d_text = QtWidgets.QLabel(self.groupBox_4)
+        self.roll_d_text.setEnabled(False)
+        self.roll_d_text.setGeometry(QtCore.QRect(140, 135, 91, 31))
+        self.roll_d_text.setStyleSheet("QLabel\n"
 "{\n"
 "    font-family: Arial;\n"
 "    font-style: normal;\n"
@@ -1467,14 +1467,14 @@ class Ui_FC(object):
 "    color: #fff;\n"
 "\n"
 "}")
-        self.hiz_text_5.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.hiz_text_5.setScaledContents(False)
-        self.hiz_text_5.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.hiz_text_5.setObjectName("hiz_text_5")
-        self.hiz_text_3 = QtWidgets.QLabel(self.groupBox_4)
-        self.hiz_text_3.setEnabled(False)
-        self.hiz_text_3.setGeometry(QtCore.QRect(40, 135, 91, 31))
-        self.hiz_text_3.setStyleSheet("QLabel\n"
+        self.roll_d_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.roll_d_text.setScaledContents(False)
+        self.roll_d_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.roll_d_text.setObjectName("roll_d_text")
+        self.pitch_d_text = QtWidgets.QLabel(self.groupBox_4)
+        self.pitch_d_text.setEnabled(False)
+        self.pitch_d_text.setGeometry(QtCore.QRect(40, 135, 91, 31))
+        self.pitch_d_text.setStyleSheet("QLabel\n"
 "{\n"
 "    font-family: Arial;\n"
 "    font-style: normal;\n"
@@ -1484,14 +1484,14 @@ class Ui_FC(object):
 "    color: #fff;\n"
 "\n"
 "}")
-        self.hiz_text_3.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.hiz_text_3.setScaledContents(False)
-        self.hiz_text_3.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.hiz_text_3.setObjectName("hiz_text_3")
-        self.hiz_text = QtWidgets.QLabel(self.groupBox_4)
-        self.hiz_text.setEnabled(False)
-        self.hiz_text.setGeometry(QtCore.QRect(40, 55, 91, 31))
-        self.hiz_text.setStyleSheet("QLabel\n"
+        self.pitch_d_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.pitch_d_text.setScaledContents(False)
+        self.pitch_d_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.pitch_d_text.setObjectName("pitch_d_text")
+        self.pitch_p_text = QtWidgets.QLabel(self.groupBox_4)
+        self.pitch_p_text.setEnabled(False)
+        self.pitch_p_text.setGeometry(QtCore.QRect(40, 55, 91, 31))
+        self.pitch_p_text.setStyleSheet("QLabel\n"
 "{\n"
 "    font-family: Arial;\n"
 "    font-style: normal;\n"
@@ -1501,10 +1501,10 @@ class Ui_FC(object):
 "    color: #fff;\n"
 "\n"
 "}")
-        self.hiz_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
-        self.hiz_text.setScaledContents(False)
-        self.hiz_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.hiz_text.setObjectName("hiz_text")
+        self.pitch_p_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.pitch_p_text.setScaledContents(False)
+        self.pitch_p_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.pitch_p_text.setObjectName("pitch_p_text")
         self.hiz_title_2 = QtWidgets.QLabel(self.groupBox_4)
         self.hiz_title_2.setGeometry(QtCore.QRect(169, 29, 41, 21))
         self.hiz_title_2.setStyleSheet("QLabel\n"
@@ -1521,51 +1521,52 @@ class Ui_FC(object):
         self.pid_get_values_button = QtWidgets.QPushButton(self.groupBox_4)
         self.pid_get_values_button.setGeometry(QtCore.QRect(40, 175, 191, 31))
         self.pid_get_values_button.setObjectName("pid_get_values_button")
-        self.pid_configurate_button = QtWidgets.QPushButton(self.groupBox_4)
-        self.pid_configurate_button.setGeometry(QtCore.QRect(240, 175, 92, 31))
-        self.pid_configurate_button.setObjectName("pid_configurate_button")
         self.pid_p_slider = QtWidgets.QSlider(self.groupBox_4)
         self.pid_p_slider.setGeometry(QtCore.QRect(250, 60, 291, 22))
-        self.pid_p_slider.setMaximum(300)
-        self.pid_p_slider.setProperty("value", 61)
+        self.pid_p_slider.setMaximum(1000)
+        self.pid_p_slider.setSingleStep(1)
+        self.pid_p_slider.setPageStep(1)
+        self.pid_p_slider.setProperty("value", 0)
         self.pid_p_slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.pid_p_slider.setObjectName("pid_p_slider")
         self.pid_i_slider = QtWidgets.QSlider(self.groupBox_4)
         self.pid_i_slider.setGeometry(QtCore.QRect(250, 100, 291, 22))
-        self.pid_i_slider.setMaximum(100)
-        self.pid_i_slider.setProperty("value", 18)
+        self.pid_i_slider.setMaximum(10000)
+        self.pid_i_slider.setPageStep(1)
+        self.pid_i_slider.setProperty("value", 0)
         self.pid_i_slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.pid_i_slider.setObjectName("pid_i_slider")
         self.pid_d_slider = QtWidgets.QSlider(self.groupBox_4)
         self.pid_d_slider.setGeometry(QtCore.QRect(250, 140, 291, 22))
-        self.pid_d_slider.setMaximum(200)
-        self.pid_d_slider.setProperty("value", 100)
+        self.pid_d_slider.setMaximum(1000)
+        self.pid_d_slider.setPageStep(1)
+        self.pid_d_slider.setProperty("value", 0)
         self.pid_d_slider.setOrientation(QtCore.Qt.Orientation.Horizontal)
         self.pid_d_slider.setObjectName("pid_d_slider")
         self.label_2 = QtWidgets.QLabel(self.groupBox_4)
         self.label_2.setGeometry(QtCore.QRect(250, 50, 49, 16))
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.groupBox_4)
-        self.label_3.setGeometry(QtCore.QRect(536, 50, 49, 16))
+        self.label_3.setGeometry(QtCore.QRect(528, 50, 49, 16))
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.groupBox_4)
         self.label_4.setGeometry(QtCore.QRect(250, 90, 49, 16))
         self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(self.groupBox_4)
-        self.label_5.setGeometry(QtCore.QRect(517, 90, 49, 16))
+        self.label_5.setGeometry(QtCore.QRect(520, 90, 49, 16))
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(self.groupBox_4)
         self.label_6.setGeometry(QtCore.QRect(250, 130, 49, 16))
         self.label_6.setObjectName("label_6")
         self.label_7 = QtWidgets.QLabel(self.groupBox_4)
-        self.label_7.setGeometry(QtCore.QRect(524, 130, 49, 16))
+        self.label_7.setGeometry(QtCore.QRect(517, 130, 49, 16))
         self.label_7.setObjectName("label_7")
         self.pid_lock_unlock_button = QtWidgets.QPushButton(self.groupBox_4)
-        self.pid_lock_unlock_button.setGeometry(QtCore.QRect(340, 175, 92, 31))
+        self.pid_lock_unlock_button.setGeometry(QtCore.QRect(300, 175, 92, 31))
         self.pid_lock_unlock_button.setObjectName("pid_lock_unlock_button")
-        self.calibrate_esc_button = QtWidgets.QPushButton(self.groupBox_4)
-        self.calibrate_esc_button.setGeometry(QtCore.QRect(440, 175, 101, 31))
-        self.calibrate_esc_button.setObjectName("calibrate_esc_button")
+        self.set_default_pid = QtWidgets.QPushButton(self.groupBox_4)
+        self.set_default_pid.setGeometry(QtCore.QRect(400, 175, 101, 31))
+        self.set_default_pid.setObjectName("set_default_pid")
         self.sensor_verileri_title_27 = QtWidgets.QLabel(self.tab)
         self.sensor_verileri_title_27.setGeometry(QtCore.QRect(210, 10, 181, 41))
         self.sensor_verileri_title_27.setStyleSheet("QLabel\n"
@@ -1970,26 +1971,25 @@ class Ui_FC(object):
         self.esc_3_text.setText(_translate("FC", "ESC 3"))
         self.esc_4_text.setText(_translate("FC", "ESC 4"))
         self.hiz_title.setText(_translate("FC", "Pitch"))
-        self.hiz_text_4.setText(_translate("FC", "0.00018"))
-        self.hiz_text_2.setText(_translate("FC", "0.00018"))
+        self.roll_i_text.setText(_translate("FC", "0"))
+        self.pitch_i_text.setText(_translate("FC", "0"))
         self.hiz_title_3.setText(_translate("FC", "P"))
         self.hiz_title_4.setText(_translate("FC", "I"))
-        self.hiz_text_6.setText(_translate("FC", "0.61"))
+        self.roll_p_text.setText(_translate("FC", "0"))
         self.hiz_title_5.setText(_translate("FC", "D"))
-        self.hiz_text_5.setText(_translate("FC", "100"))
-        self.hiz_text_3.setText(_translate("FC", "100"))
-        self.hiz_text.setText(_translate("FC", "0.61"))
+        self.roll_d_text.setText(_translate("FC", "0"))
+        self.pitch_d_text.setText(_translate("FC", "0"))
+        self.pitch_p_text.setText(_translate("FC", "0"))
         self.hiz_title_2.setText(_translate("FC", "Roll"))
         self.pid_get_values_button.setText(_translate("FC", "Get Values"))
-        self.pid_configurate_button.setText(_translate("FC", "Configurate"))
         self.label_2.setText(_translate("FC", "0"))
-        self.label_3.setText(_translate("FC", "3"))
+        self.label_3.setText(_translate("FC", "10"))
         self.label_4.setText(_translate("FC", "0"))
-        self.label_5.setText(_translate("FC", "0.001"))
+        self.label_5.setText(_translate("FC", "0.01"))
         self.label_6.setText(_translate("FC", "0"))
-        self.label_7.setText(_translate("FC", "200"))
+        self.label_7.setText(_translate("FC", "1000"))
         self.pid_lock_unlock_button.setText(_translate("FC", "Unlock"))
-        self.calibrate_esc_button.setText(_translate("FC", "Calibrate ESC"))
+        self.set_default_pid.setText(_translate("FC", "Set Default PID"))
         self.sensor_verileri_title_27.setText(_translate("FC", "PID Configurations"))
         self.sensor_verileri_title_28.setText(_translate("FC", "ESC Configurations"))
         self.channel_5_title.setText(_translate("FC", "Channel 5"))

@@ -1,9 +1,12 @@
-from regex import D
+#libraries for gui
 from files.graphical_interface import *
-from modules.serialModule import serialHandler, serialCOM, portChecker
-from PyQt6.QtWebEngineWidgets import QWebEngineView
+from modules.serialModule import *
 import pyqtgraph as pg
-import io, folium, sys
+import sys
+
+#libraries for mission planner
+from PyQt6.QtWebEngineWidgets import QWebEngineView
+import io, folium
 
 class Arayuz(QtWidgets.QMainWindow):
     
@@ -12,19 +15,22 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui = Ui_FC()
         self.ui.setupUi(self)
 
-        self.warning_color = "#ff0f0f"
-        self.success_color = "#FF4CAF50"
-        self.info_color = "#F6F6F6"
         self.fc_mode = 0
+        self.warning_color  = "#FF0F0F"
+        self.success_color  = "#FF4CAF50"
+        self.info_color     = "#F6F6F6"
         self.baud_rates = [9600, 19200, 28800, 38400, 57600, 76800, 115200]
-        self.telemetryConnectionStatus = False
-        self.pid_configurate_status = False
+        self.telemetryConnectionStatus   = False
+        self.pid_configurate_status      = False
+        self.pid_p_default = 61
+        self.pid_i_default = 18
+        self.pid_d_default = 100
 
         self.telemetryRefresh()
         self.connections()
         self.initGui()
         self.initGraphs()
-
+        
         '''self.ui.webView = QWebEngineView(self.ui.groupBox)
         self.ui.webView.setGeometry(QtCore.QRect(610, 30, 581, 581))
         self.ui.webView.setObjectName("webView")
@@ -41,13 +47,16 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.disarm_button.clicked.connect(self.disarm_mode)
         self.ui.debug_button.clicked.connect(self.debug_mode)
         self.ui.pid_lock_unlock_button.clicked.connect(self.pid_lock_unlock)
+        self.ui.pid_p_slider.valueChanged.connect(self.pid_p_update)
+        self.ui.pid_i_slider.valueChanged.connect(self.pid_i_update)
+        self.ui.pid_d_slider.valueChanged.connect(self.pid_d_update)
         self.ui.total_esc.valueChanged.connect(self.total_esc_reporter)
         self.ui.esc_1.valueChanged.connect(self.esc_1_reporter)
         self.ui.esc_2.valueChanged.connect(self.esc_2_reporter)
         self.ui.esc_3.valueChanged.connect(self.esc_3_reporter)
         self.ui.esc_4.valueChanged.connect(self.esc_4_reporter)
-        
-    
+        self.ui.pid_get_values_button.clicked.connect(self.pid_get_values_button_reporter)
+        self.ui.set_default_pid.clicked.connect(self.set_default_pid_reporter)    
     def initModule(self):
         if self.telemetryConnectionStatus == False:
             self.ui.INITCheckBox.setChecked(True)
@@ -64,6 +73,12 @@ class Arayuz(QtWidgets.QMainWindow):
             self.GeneralSerialHandler.tx_signal.connect(self.tx_signal_update)
             self.GeneralSerialHandler.rx_signal.connect(self.rx_signal_update)
             self.GeneralSerialHandler.latency_signal.connect(self.latency_signal_update)
+            self.GeneralSerialHandler.gpp_signal.connect(self.gpp_signal_update)
+            self.GeneralSerialHandler.gpi_signal.connect(self.gpi_signal_update)
+            self.GeneralSerialHandler.gpd_signal.connect(self.gpd_signal_update)
+            self.GeneralSerialHandler.grp_signal.connect(self.grp_signal_update)
+            self.GeneralSerialHandler.gri_signal.connect(self.gri_signal_update)
+            self.GeneralSerialHandler.grd_signal.connect(self.grd_signal_update)
             self.GeneralSerialHandler.start()
             self.ui.initializeModule.setText("Terminate The Module")
             self.ui.INITCheckBox.setChecked(False)
@@ -72,20 +87,26 @@ class Arayuz(QtWidgets.QMainWindow):
             self.ui.baudSelectionBox.setEnabled(False)
             self.ui.arm_button.setEnabled(True)
             self.ui.disarm_button.setEnabled(True) 
-            self.ui.pid_get_values_button.setEnabled(True)
-            self.ui.pid_lock_unlock_button.setEnabled(True)
             self.ui.debug_button.setEnabled(True)
+            self.ui.pid_get_values_button.setEnabled(True)
             self.terminal('SUCCESS', 'Module initialized successfully.')
+            self.ser.txBuffer.append("SFM3")
+            self.ser.txBuffer.append("GPP")
+            self.ser.txBuffer.append("GPI")
+            self.ser.txBuffer.append("GPD")
+            self.ser.txBuffer.append("GRP")
+            self.ser.txBuffer.append("GRI")
+            self.ser.txBuffer.append("GRD")
         else:
             self.ui.initializeModule.setText("Initialize The Module")
-            self.ser.txBuffer.append("SM0")
+            self.disarm_mode()
+            self.ser.txBuffer.append("SFM0")
             self.ser.telemetryConnectionStatus = False
             self.telemetryConnectionStatus = False  
             self.ui.portSelectionBox.setEnabled(True)
             self.ui.baudSelectionBox.setEnabled(True)
             self.ui.arm_button.setEnabled(False)
             self.ui.disarm_button.setEnabled(False)
-            self.ui.pid_configurate_button.setEnabled(False)
             self.ui.pid_get_values_button.setEnabled(False)
             self.ui.pid_lock_unlock_button.setEnabled(False)
             self.ui.debug_button.setEnabled(False)
@@ -132,7 +153,6 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.TXCheckBox.setChecked(False)
         self.ui.arm_button.setEnabled(False)
         self.ui.disarm_button.setEnabled(False)
-        self.ui.pid_configurate_button.setEnabled(False)
         self.ui.pid_get_values_button.setEnabled(False)
         self.ui.pid_lock_unlock_button.setEnabled(False)
         self.ui.debug_button.setEnabled(False)
@@ -141,7 +161,7 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.esc_2.setEnabled(False)
         self.ui.esc_3.setEnabled(False)
         self.ui.esc_4.setEnabled(False)
-        self.ui.calibrate_esc_button.setEnabled(False)
+        self.ui.set_default_pid.setEnabled(False)
         self.ui.pid_p_slider.setEnabled(False)
         self.ui.pid_i_slider.setEnabled(False)
         self.ui.pid_d_slider.setEnabled(False)
@@ -152,40 +172,50 @@ class Arayuz(QtWidgets.QMainWindow):
         elif status == "SUCCESS": self.ui.terminalBox.insertHtml(f'<font color={self.success_color  }><strong>SUCCESS :: </strong></font><font color="white">{msg}</font><br>')
         self.ui.terminalBox.verticalScrollBar().setValue(self.ui.terminalBox.verticalScrollBar().maximum())
 
-    def debug_mode(self):
-        
-        self.ser.txBuffer.append("SM2")
-        self.ui.calibrate_esc_button.setEnabled(True)
+    def debug_mode(self): 
+        self.ser.txBuffer.append("SFM2")
+        self.ui.set_default_pid.setEnabled(True)
         self.ui.total_esc.setEnabled(True)
         self.ui.esc_1.setEnabled(True)
         self.ui.esc_2.setEnabled(True)
         self.ui.esc_3.setEnabled(True)
         self.ui.esc_4.setEnabled(True)
+        self.ui.pid_get_values_button.setEnabled(True)
+        self.ui.pid_lock_unlock_button.setEnabled(True)
+        self.ui.set_default_pid.setEnabled(True) 
     def arm_mode(self): 
-        self.ser.txBuffer.append("SM1")
+        self.ser.txBuffer.append("SFM1")
+        if self.ui.pid_lock_unlock_button.text() == "Lock":
+            print("clicked")
+            self.ui.pid_lock_unlock_button.click()
         self.ui.total_esc.setEnabled(False)
         self.ui.esc_1.setEnabled(False)
         self.ui.esc_2.setEnabled(False)
         self.ui.esc_3.setEnabled(False)
         self.ui.esc_4.setEnabled(False)
+        self.ui.pid_lock_unlock_button.setEnabled(False)
+        self.ui.set_default_pid.setEnabled(False)
     def disarm_mode(self): 
-        self.ser.txBuffer.append("SM0")
+        self.ser.txBuffer.append("SFM3")
+        if self.ui.pid_lock_unlock_button.text() == "Lock":
+            print("clicked")
+            self.ui.pid_lock_unlock_button.click()
         self.ui.total_esc.setEnabled(False)
         self.ui.esc_1.setEnabled(False)
         self.ui.esc_2.setEnabled(False)
         self.ui.esc_3.setEnabled(False)
         self.ui.esc_4.setEnabled(False)
+        self.ui.pid_lock_unlock_button.setEnabled(False)
+        self.ui.set_default_pid.setEnabled(False)
 
     def pid_lock_unlock(self):
         if self.pid_configurate_status == True:
-            self.ui.pid_configurate_button.setEnabled(False)
             self.pid_configurate_status = False
             self.ui.pid_lock_unlock_button.setText('Unlock')
             self.ui.pid_p_slider.setEnabled(False)
             self.ui.pid_i_slider.setEnabled(False)
             self.ui.pid_d_slider.setEnabled(False)
         else:
-            self.ui.pid_configurate_button.setEnabled(True)
             self.pid_configurate_status = True
             self.ui.pid_lock_unlock_button.setText('Lock')
             self.ui.pid_p_slider.setEnabled(True)
@@ -197,10 +227,9 @@ class Arayuz(QtWidgets.QMainWindow):
     def rx_signal_update(self, state): 
         self.ui.RXCheckBox.setChecked(state)
         QtCore.QCoreApplication.processEvents()
-    def txBufferTextUpdate(self, val): self.ui.tx_buffer.setText(str(val))
-    def rxBufferTextUpdate(self, val): self.ui.rx_buffer.setText(str(val))
     def latency_signal_update(self, val): 
         if val < 0: val = 0
+        elif val > 80000: val = 0
         self.ui.latencyArayuz.setText(str(val))
     def angles_update(self, angles):
         self.ui.angleGraph.clear()
@@ -241,9 +270,54 @@ class Arayuz(QtWidgets.QMainWindow):
         val = self.ui.esc_4.value()
         self.ui.esc_4_lcd.display(val)
         self.ser.txBuffer.append("E4"+str(val))
+    def pid_p_update(self):
+        val = self.ui.pid_p_slider.value()
+        val_text = str(val / 100 )
+        self.ui.pitch_p_text.setText(val_text)
+        self.ui.roll_p_text.setText(val_text)
+        try: 
+            self.ser.txBuffer.append(f"SPP{val}")
+            self.ser.txBuffer.append(f"SRP{val}")
+        except: pass
+    def pid_i_update(self):
+        val = self.ui.pid_i_slider.value()
+        val_text = str(val / 100000 )
+        self.ui.pitch_i_text.setText(val_text)
+        self.ui.roll_i_text.setText(val_text)
+        try:
+            self.ser.txBuffer.append(f"SPI{val}")
+            self.ser.txBuffer.append(f"SRI{val}")
+        except: pass
+    def pid_d_update(self):
+        val = self.ui.pid_d_slider.value()
+        val_text = str(val)
+        self.ui.pitch_d_text.setText(val_text)
+        self.ui.roll_d_text.setText(val_text)
+        try:
+            self.ser.txBuffer.append(f"SPD{val}") 
+            self.ser.txBuffer.append(f"SRD{val}")
+        except: pass
+    def set_default_pid_reporter(self):
+        self.ui.pid_p_slider.setValue(self.pid_p_default)
+        self.ui.pid_i_slider.setValue(self.pid_i_default)
+        self.ui.pid_d_slider.setValue(self.pid_d_default)
+    def pid_get_values_button_reporter(self):
+        self.ser.txBuffer.append("GPP")
+        self.ser.txBuffer.append("GPI")
+        self.ser.txBuffer.append("GPD")
+        self.ser.txBuffer.append("GRP")
+        self.ser.txBuffer.append("GRI")
+        self.ser.txBuffer.append("GRD")
+    def gpp_signal_update(self, val):  self.ui.pid_p_slider.setValue(val)
+    def gpi_signal_update(self, val):  self.ui.pid_i_slider.setValue(val)
+    def gpd_signal_update(self, val):  self.ui.pid_d_slider.setValue(val)
+    def grp_signal_update(self, val):  self.ui.pid_p_slider.setValue(val)
+    def gri_signal_update(self, val):  self.ui.pid_i_slider.setValue(val)
+    def grd_signal_update(self, val):  self.ui.pid_d_slider.setValue(val)
+    def txBufferTextUpdate(self, val): self.ui.tx_buffer.setText(str(val))
+    def rxBufferTextUpdate(self, val): self.ui.rx_buffer.setText(str(val))
 
-if __name__ == "__main__":
-    import sys
+if __name__ == "__main__": 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow() 
     ui = Arayuz()

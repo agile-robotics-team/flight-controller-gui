@@ -20,18 +20,25 @@ class serialCOM:
 class serialHandler(QtCore.QThread):
     
     # data signals
-    angles      = QtCore.pyqtSignal(list)
-    roll_angles = QtCore.pyqtSignal(list)
+    angles          = QtCore.pyqtSignal(list)
+    roll_angles     = QtCore.pyqtSignal(list)
+    gpp_signal      = QtCore.pyqtSignal(int)
+    gpi_signal      = QtCore.pyqtSignal(int)
+    gpd_signal      = QtCore.pyqtSignal(int)
+    grp_signal      = QtCore.pyqtSignal(int)
+    gri_signal      = QtCore.pyqtSignal(int)
+    grd_signal      = QtCore.pyqtSignal(int)
 
     # short signals    
-    rxBufferLen = QtCore.pyqtSignal(int)
-    txBufferLen = QtCore.pyqtSignal(int)
-    init_signal = QtCore.pyqtSignal(bool)
-    idle_signal = QtCore.pyqtSignal(bool)
-    tx_signal   = QtCore.pyqtSignal(bool)
-    rx_signal   = QtCore.pyqtSignal(bool)
-    latency_signal = QtCore.pyqtSignal(int)
-    mode_signal = QtCore.pyqtSignal(str)
+    rxBufferLen     = QtCore.pyqtSignal(int)
+    txBufferLen     = QtCore.pyqtSignal(int)
+    init_signal     = QtCore.pyqtSignal(bool)
+    idle_signal     = QtCore.pyqtSignal(bool)
+    tx_signal       = QtCore.pyqtSignal(bool)
+    rx_signal       = QtCore.pyqtSignal(bool)
+    latency_signal  = QtCore.pyqtSignal(int)
+    mode_signal     = QtCore.pyqtSignal(str)
+ 
 
     def __init__(self, port, baud, buffers, parent = None):
         super(serialHandler, self).__init__(parent)
@@ -60,7 +67,7 @@ class serialHandler(QtCore.QThread):
                 self.tx_signal.emit(False)        
             
             # 1ms delay for prevent loop from freze
-            #sleep(0.0001)
+            sleep(0.0000001)
 
             if self.ser.inWaiting()>0: 
                 self.rx_signal.emit(True)
@@ -94,6 +101,13 @@ class serialHandler(QtCore.QThread):
                         elif device_mode == 1: self.mode_signal.emit('STABILIZED Mode')
                         elif device_mode == 2: self.mode_signal.emit('DEBUG Mode')
                         else: self.mode_signal.emit('ERROR Mode')
+
+                    if 'GPP' in self.buffers.rxBuffer[0].keys(): self.gpp_signal.emit(self.buffers.rxBuffer[0]['GPP'])
+                    if 'GPI' in self.buffers.rxBuffer[0].keys(): self.gpi_signal.emit(self.buffers.rxBuffer[0]['GPI'])
+                    if 'GPD' in self.buffers.rxBuffer[0].keys(): self.gpd_signal.emit(self.buffers.rxBuffer[0]['GPD'])
+                    if 'GRP' in self.buffers.rxBuffer[0].keys(): self.grp_signal.emit(self.buffers.rxBuffer[0]['GRP'])
+                    if 'GRI' in self.buffers.rxBuffer[0].keys(): self.gri_signal.emit(self.buffers.rxBuffer[0]['GRI'])
+                    if 'GRD' in self.buffers.rxBuffer[0].keys(): self.grd_signal.emit(self.buffers.rxBuffer[0]['GRD'])
                         
                 try: 
                     ms = int((time() - float(self.buffers.rxBuffer[0]))*1000) 
