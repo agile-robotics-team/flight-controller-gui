@@ -78,7 +78,14 @@ class Arayuz(QtWidgets.QMainWindow):
             self.GeneralSerialHandler.gpd_signal.connect(self.gpd_signal_update)
             self.GeneralSerialHandler.grp_signal.connect(self.grp_signal_update)
             self.GeneralSerialHandler.gri_signal.connect(self.gri_signal_update)
+            
             self.GeneralSerialHandler.grd_signal.connect(self.grd_signal_update)
+
+            self.GeneralSerialHandler.esc1_signal.connect(self.esc_1_update)
+            self.GeneralSerialHandler.esc2_signal.connect(self.esc_2_update)
+            self.GeneralSerialHandler.esc3_signal.connect(self.esc_3_update)
+            self.GeneralSerialHandler.esc4_signal.connect(self.esc_4_update)
+            
             self.GeneralSerialHandler.start()
             self.ui.initializeModule.setText("Terminate The Module")
             self.ui.INITCheckBox.setChecked(False)
@@ -172,7 +179,8 @@ class Arayuz(QtWidgets.QMainWindow):
         elif status == "SUCCESS": self.ui.terminalBox.insertHtml(f'<font color={self.success_color  }><strong>SUCCESS :: </strong></font><font color="white">{msg}</font><br>')
         self.ui.terminalBox.verticalScrollBar().setValue(self.ui.terminalBox.verticalScrollBar().maximum())
 
-    def debug_mode(self): 
+    def debug_mode(self):
+        self.fc_mode = 2
         self.ser.txBuffer.append("SFM2")
         self.ui.set_default_pid.setEnabled(True)
         self.ui.total_esc.setEnabled(True)
@@ -184,6 +192,7 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.pid_lock_unlock_button.setEnabled(True)
         self.ui.set_default_pid.setEnabled(True) 
     def arm_mode(self): 
+        self.fc_mode = 1
         self.ser.txBuffer.append("SFM1")
         if self.ui.pid_lock_unlock_button.text() == "Lock":
             print("clicked")
@@ -195,7 +204,8 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.esc_4.setEnabled(False)
         self.ui.pid_lock_unlock_button.setEnabled(False)
         self.ui.set_default_pid.setEnabled(False)
-    def disarm_mode(self): 
+    def disarm_mode(self):
+        self.fc_mode = 3
         self.ser.txBuffer.append("SFM3")
         if self.ui.pid_lock_unlock_button.text() == "Lock":
             print("clicked")
@@ -257,19 +267,31 @@ class Arayuz(QtWidgets.QMainWindow):
     def esc_1_reporter(self):
         val = self.ui.esc_1.value()
         self.ui.esc_1_lcd.display(val)
-        self.ser.txBuffer.append("E1"+str(val))
+        if self.fc_mode == 2: self.ser.txBuffer.append("SE1"+str(val))
     def esc_2_reporter(self):
         val = self.ui.esc_2.value()
         self.ui.esc_2_lcd.display(val)
-        self.ser.txBuffer.append("E2"+str(val))
+        if self.fc_mode == 2: self.ser.txBuffer.append("SE2"+str(val))
     def esc_3_reporter(self):
         val = self.ui.esc_3.value()
         self.ui.esc_3_lcd.display(val)
-        self.ser.txBuffer.append("E3"+str(val))
+        if self.fc_mode == 2: self.ser.txBuffer.append("SE3"+str(val))
     def esc_4_reporter(self):
         val = self.ui.esc_4.value()
         self.ui.esc_4_lcd.display(val)
-        self.ser.txBuffer.append("E4"+str(val))
+        if self.fc_mode == 2: self.ser.txBuffer.append("SE4"+str(val))
+    def esc_1_update(self, val): 
+        self.ui.esc_1_lcd.display(val)
+        self.ui.esc_1.setValue(val)
+    def esc_2_update(self, val): 
+        self.ui.esc_2_lcd.display(val)
+        self.ui.esc_2.setValue(val)
+    def esc_3_update(self, val): 
+        self.ui.esc_3_lcd.display(val)
+        self.ui.esc_3.setValue(val)
+    def esc_4_update(self, val): 
+        self.ui.esc_4_lcd.display(val)
+        self.ui.esc_4.setValue(val)
     def pid_p_update(self):
         val = self.ui.pid_p_slider.value()
         val_text = str(val / 100 )

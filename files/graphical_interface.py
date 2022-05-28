@@ -1121,7 +1121,7 @@ class Ui_FC(object):
         self.label = QtWidgets.QLabel(self.groupBox_2)
         self.label.setGeometry(QtCore.QRect(720, 290, 111, 51))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("C:/Users/emirp/.designer/backup/angle_graph_info.png"))
+        self.label.setPixmap(QtGui.QPixmap(".\\files\\angle_graph_info.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.groupBox_3 = QtWidgets.QGroupBox(self.tab)

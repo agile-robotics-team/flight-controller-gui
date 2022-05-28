@@ -28,6 +28,10 @@ class serialHandler(QtCore.QThread):
     grp_signal      = QtCore.pyqtSignal(int)
     gri_signal      = QtCore.pyqtSignal(int)
     grd_signal      = QtCore.pyqtSignal(int)
+    esc1_signal     = QtCore.pyqtSignal(int)
+    esc2_signal     = QtCore.pyqtSignal(int)
+    esc3_signal     = QtCore.pyqtSignal(int)
+    esc4_signal     = QtCore.pyqtSignal(int)
 
     # short signals    
     rxBufferLen     = QtCore.pyqtSignal(int)
@@ -67,14 +71,16 @@ class serialHandler(QtCore.QThread):
                 self.tx_signal.emit(False)        
             
             # 1ms delay for prevent loop from freze
-            sleep(0.0000001)
+            # sleep(0.0000001)
 
             if self.ser.inWaiting()>0: 
                 self.rx_signal.emit(True)
-                data = self.ser.readline()[:-2].decode("UTF-8")
-                if data not in ["code[200]", "code[417]"]:
-                    try: self.buffers.rxBuffer.append(loads(data))
-                    except Exception as e: pass
+                try:
+                    data = self.ser.readline()[:-2].decode("UTF-8")
+                    if data not in ["code[200]", "code[417]"]:
+                        try: self.buffers.rxBuffer.append(loads(data))
+                        except Exception as e: pass
+                except: print("Serial Reading Error")
                 self.rx_signal.emit(False)
         
             if len(self.buffers.rxBuffer) > 0:
@@ -108,6 +114,11 @@ class serialHandler(QtCore.QThread):
                     if 'GRP' in self.buffers.rxBuffer[0].keys(): self.grp_signal.emit(self.buffers.rxBuffer[0]['GRP'])
                     if 'GRI' in self.buffers.rxBuffer[0].keys(): self.gri_signal.emit(self.buffers.rxBuffer[0]['GRI'])
                     if 'GRD' in self.buffers.rxBuffer[0].keys(): self.grd_signal.emit(self.buffers.rxBuffer[0]['GRD'])
+
+                    if 'ESC1' in self.buffers.rxBuffer[0].keys(): self.esc1_signal.emit(self.buffers.rxBuffer[0]['ESC1'])
+                    if 'ESC2' in self.buffers.rxBuffer[0].keys(): self.esc2_signal.emit(self.buffers.rxBuffer[0]['ESC2'])
+                    if 'ESC3' in self.buffers.rxBuffer[0].keys(): self.esc3_signal.emit(self.buffers.rxBuffer[0]['ESC3'])
+                    if 'ESC4' in self.buffers.rxBuffer[0].keys(): self.esc4_signal.emit(self.buffers.rxBuffer[0]['ESC4'])
                         
                 try: 
                     ms = int((time() - float(self.buffers.rxBuffer[0]))*1000) 
