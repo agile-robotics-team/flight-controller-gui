@@ -2534,7 +2534,7 @@ QSlider::handle:horizontal:disabled
 }</string>
        </property>
        <property name="text">
-        <string>Channel 5</string>
+        <string>Channel 6</string>
        </property>
       </widget>
       <widget class="QLabel" name="channel_2_text">
@@ -2633,7 +2633,7 @@ QSlider::handle:horizontal:disabled
 }</string>
        </property>
        <property name="text">
-        <string>Channel 1</string>
+        <string>Channel 2</string>
        </property>
       </widget>
       <widget class="PlotWidget" name="channel_1_plot">
@@ -2734,7 +2734,7 @@ QSlider::handle:horizontal:disabled
 }</string>
        </property>
        <property name="text">
-        <string>Channel 0</string>
+        <string>Channel 1</string>
        </property>
       </widget>
       <widget class="QLabel" name="channel_4_title">
@@ -2759,7 +2759,7 @@ QSlider::handle:horizontal:disabled
 }</string>
        </property>
        <property name="text">
-        <string>Channel 4</string>
+        <string>Channel 5</string>
        </property>
       </widget>
       <widget class="PlotWidget" name="channel_2_plot">
@@ -2871,7 +2871,7 @@ QSlider::handle:horizontal:disabled
 }</string>
        </property>
        <property name="text">
-        <string>Channel 3</string>
+        <string>Channel 4</string>
        </property>
       </widget>
       <widget class="QLabel" name="z1">
@@ -2933,7 +2933,7 @@ QSlider::handle:horizontal:disabled
 }</string>
        </property>
        <property name="text">
-        <string>Channel 2</string>
+        <string>Channel 3</string>
        </property>
       </widget>
       <widget class="QLabel" name="channel_1_text">
