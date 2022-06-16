@@ -12,9 +12,9 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_FC(object):
     def setupUi(self, FC):
         FC.setObjectName("FC")
-        FC.resize(1240, 791)
-        FC.setMinimumSize(QtCore.QSize(1240, 791))
-        FC.setMaximumSize(QtCore.QSize(1240, 791))
+        FC.resize(1921, 1031)
+        FC.setMinimumSize(QtCore.QSize(1921, 1030))
+        FC.setMaximumSize(QtCore.QSize(1921, 1080))
         FC.setStyleSheet("/*Copyright (c) DevSec Studio. All rights reserved.\n"
 "\n"
 "MIT License\n"
@@ -1006,7 +1006,7 @@ class Ui_FC(object):
         self.centralwidget = QtWidgets.QWidget(FC)
         self.centralwidget.setObjectName("centralwidget")
         self.deviceFrame = QtWidgets.QGroupBox(self.centralwidget)
-        self.deviceFrame.setGeometry(QtCore.QRect(260, -10, 971, 161))
+        self.deviceFrame.setGeometry(QtCore.QRect(260, -10, 1541, 161))
         self.deviceFrame.setTitle("")
         self.deviceFrame.setObjectName("deviceFrame")
         self.portTitle = QtWidgets.QLabel(self.deviceFrame)
@@ -1017,12 +1017,14 @@ class Ui_FC(object):
         self.portSelectionBox.setCurrentText("")
         self.portSelectionBox.setObjectName("portSelectionBox")
         self.terminalBox = QtWidgets.QTextEdit(self.deviceFrame)
-        self.terminalBox.setGeometry(QtCore.QRect(260, 30, 421, 121))
+        self.terminalBox.setEnabled(False)
+        self.terminalBox.setGeometry(QtCore.QRect(430, 31, 821, 119))
         self.terminalBox.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.terminalBox.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
+        self.terminalBox.setReadOnly(True)
         self.terminalBox.setObjectName("terminalBox")
         self.deviceModes = QtWidgets.QGroupBox(self.deviceFrame)
-        self.deviceModes.setGeometry(QtCore.QRect(690, 10, 121, 141))
+        self.deviceModes.setGeometry(QtCore.QRect(1260, 10, 121, 141))
         self.deviceModes.setTitle("")
         self.deviceModes.setObjectName("deviceModes")
         self.RXCheckBox = QtWidgets.QCheckBox(self.deviceModes)
@@ -1066,7 +1068,7 @@ class Ui_FC(object):
         self.TXCheckBox.setChecked(True)
         self.TXCheckBox.setObjectName("TXCheckBox")
         self.initializeModule = QtWidgets.QPushButton(self.deviceFrame)
-        self.initializeModule.setGeometry(QtCore.QRect(20, 120, 221, 31))
+        self.initializeModule.setGeometry(QtCore.QRect(250, 80, 161, 31))
         self.initializeModule.setObjectName("initializeModule")
         self.baudSelectionBox = QtWidgets.QComboBox(self.deviceFrame)
         self.baudSelectionBox.setGeometry(QtCore.QRect(90, 80, 151, 31))
@@ -1076,7 +1078,7 @@ class Ui_FC(object):
         self.portTitle_2.setGeometry(QtCore.QRect(20, 85, 91, 21))
         self.portTitle_2.setObjectName("portTitle_2")
         self.bufferInfoBox = QtWidgets.QGroupBox(self.deviceFrame)
-        self.bufferInfoBox.setGeometry(QtCore.QRect(820, 10, 141, 141))
+        self.bufferInfoBox.setGeometry(QtCore.QRect(1390, 10, 141, 141))
         self.bufferInfoBox.setTitle("")
         self.bufferInfoBox.setObjectName("bufferInfoBox")
         self.rx_buffer = QtWidgets.QLineEdit(self.bufferInfoBox)
@@ -1104,26 +1106,39 @@ class Ui_FC(object):
         self.deviceModeTitle_2 = QtWidgets.QLabel(self.bufferInfoBox)
         self.deviceModeTitle_2.setGeometry(QtCore.QRect(10, 25, 81, 16))
         self.deviceModeTitle_2.setObjectName("deviceModeTitle_2")
+        self.scanPortButton = QtWidgets.QPushButton(self.deviceFrame)
+        self.scanPortButton.setGeometry(QtCore.QRect(250, 40, 161, 31))
+        self.scanPortButton.setObjectName("scanPortButton")
+        self.moduleSelectionBox = QtWidgets.QComboBox(self.deviceFrame)
+        self.moduleSelectionBox.setGeometry(QtCore.QRect(90, 120, 151, 31))
+        self.moduleSelectionBox.setCurrentText("")
+        self.moduleSelectionBox.setObjectName("moduleSelectionBox")
+        self.portTitle_3 = QtWidgets.QLabel(self.deviceFrame)
+        self.portTitle_3.setGeometry(QtCore.QRect(20, 125, 91, 21))
+        self.portTitle_3.setObjectName("portTitle_3")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setEnabled(True)
-        self.tabWidget.setGeometry(QtCore.QRect(10, 130, 1221, 651))
+        self.tabWidget.setGeometry(QtCore.QRect(10, 130, 1901, 891))
         self.tabWidget.setMaximumSize(QtCore.QSize(16777215, 16777211))
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
         self.groupBox_2 = QtWidgets.QGroupBox(self.tab)
-        self.groupBox_2.setGeometry(QtCore.QRect(10, 250, 871, 361))
+        self.groupBox_2.setGeometry(QtCore.QRect(10, 250, 871, 601))
         self.groupBox_2.setTitle("")
         self.groupBox_2.setObjectName("groupBox_2")
-        self.angleGraph = PlotWidget(self.groupBox_2)
-        self.angleGraph.setGeometry(QtCore.QRect(15, 40, 841, 301))
-        self.angleGraph.setObjectName("angleGraph")
-        self.label = QtWidgets.QLabel(self.groupBox_2)
-        self.label.setGeometry(QtCore.QRect(720, 290, 111, 51))
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap(".\\files\\angle_graph_info.png"))
-        self.label.setScaledContents(True)
-        self.label.setObjectName("label")
+        self.pitchGraph = PlotWidget(self.groupBox_2)
+        self.pitchGraph.setGeometry(QtCore.QRect(15, 40, 841, 250))
+        self.pitchGraph.setObjectName("pitchGraph")
+        self.rollGraph = PlotWidget(self.groupBox_2)
+        self.rollGraph.setGeometry(QtCore.QRect(15, 300, 841, 250))
+        self.rollGraph.setObjectName("rollGraph")
+        self.pitch_roll_graph_label = QtWidgets.QLabel(self.groupBox_2)
+        self.pitch_roll_graph_label.setGeometry(QtCore.QRect(740, 540, 111, 51))
+        self.pitch_roll_graph_label.setText("")
+        self.pitch_roll_graph_label.setPixmap(QtGui.QPixmap(".\\files\\angle_graph_info.png"))
+        self.pitch_roll_graph_label.setScaledContents(True)
+        self.pitch_roll_graph_label.setObjectName("pitch_roll_graph_label")
         self.groupBox_3 = QtWidgets.QGroupBox(self.tab)
         self.groupBox_3.setGeometry(QtCore.QRect(580, 40, 301, 221))
         self.groupBox_3.setStyleSheet("/*-----QSlider-----*/\n"
@@ -1567,28 +1582,16 @@ class Ui_FC(object):
         self.set_default_pid = QtWidgets.QPushButton(self.groupBox_4)
         self.set_default_pid.setGeometry(QtCore.QRect(400, 175, 101, 31))
         self.set_default_pid.setObjectName("set_default_pid")
-        self.sensor_verileri_title_27 = QtWidgets.QLabel(self.tab)
-        self.sensor_verileri_title_27.setGeometry(QtCore.QRect(210, 10, 181, 41))
-        self.sensor_verileri_title_27.setStyleSheet("QLabel\n"
-"{\n"
-"    font-family: Arial;\n"
-"    font-style: normal;\n"
-"    font-size: 15pt;\n"
-"    font-weight: bold;\n"
-"}")
-        self.sensor_verileri_title_27.setObjectName("sensor_verileri_title_27")
-        self.sensor_verileri_title_28 = QtWidgets.QLabel(self.tab)
-        self.sensor_verileri_title_28.setGeometry(QtCore.QRect(630, 10, 211, 41))
-        self.sensor_verileri_title_28.setStyleSheet("QLabel\n"
-"{\n"
-"    font-family: Arial;\n"
-"    font-style: normal;\n"
-"    font-size: 15pt;\n"
-"    font-weight: bold;\n"
-"}")
-        self.sensor_verileri_title_28.setObjectName("sensor_verileri_title_28")
+        self.pid_configuration_title = QtWidgets.QLabel(self.tab)
+        self.pid_configuration_title.setGeometry(QtCore.QRect(190, 10, 361, 41))
+        self.pid_configuration_title.setStyleSheet("")
+        self.pid_configuration_title.setObjectName("pid_configuration_title")
+        self.esc_config_title = QtWidgets.QLabel(self.tab)
+        self.esc_config_title.setGeometry(QtCore.QRect(650, 10, 211, 41))
+        self.esc_config_title.setStyleSheet("")
+        self.esc_config_title.setObjectName("esc_config_title")
         self.groupBox_5 = QtWidgets.QGroupBox(self.tab)
-        self.groupBox_5.setGeometry(QtCore.QRect(890, 40, 321, 571))
+        self.groupBox_5.setGeometry(QtCore.QRect(1570, 40, 321, 811))
         self.groupBox_5.setTitle("")
         self.groupBox_5.setObjectName("groupBox_5")
         self.z1_6 = QtWidgets.QLabel(self.groupBox_5)
@@ -1903,16 +1906,318 @@ class Ui_FC(object):
         self.z1_5.setScaledContents(False)
         self.z1_5.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.z1_5.setObjectName("z1_5")
-        self.sensor_verileri_title_29 = QtWidgets.QLabel(self.tab)
-        self.sensor_verileri_title_29.setGeometry(QtCore.QRect(960, 10, 211, 41))
-        self.sensor_verileri_title_29.setStyleSheet("QLabel\n"
+        self.channel_6_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_6_text.setEnabled(False)
+        self.channel_6_text.setGeometry(QtCore.QRect(17, 577, 141, 41))
+        self.channel_6_text.setStyleSheet("QLabel\n"
 "{\n"
 "    font-family: Arial;\n"
 "    font-style: normal;\n"
-"    font-size: 15pt;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_6_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_6_text.setScaledContents(False)
+        self.channel_6_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_6_text.setObjectName("channel_6_text")
+        self.channel_6_plot = PlotWidget(self.groupBox_5)
+        self.channel_6_plot.setEnabled(False)
+        self.channel_6_plot.setGeometry(QtCore.QRect(160, 580, 131, 35))
+        self.channel_6_plot.setObjectName("channel_6_plot")
+        self.channel_6_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_6_title.setGeometry(QtCore.QRect(20, 550, 161, 21))
+        self.channel_6_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_6_title.setObjectName("channel_6_title")
+        self.channel_7_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_7_text.setEnabled(False)
+        self.channel_7_text.setGeometry(QtCore.QRect(17, 657, 141, 41))
+        self.channel_7_text.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_7_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_7_text.setScaledContents(False)
+        self.channel_7_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_7_text.setObjectName("channel_7_text")
+        self.channel_7_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_7_title.setGeometry(QtCore.QRect(20, 630, 161, 21))
+        self.channel_7_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_7_title.setObjectName("channel_7_title")
+        self.channel_7_plot = PlotWidget(self.groupBox_5)
+        self.channel_7_plot.setEnabled(False)
+        self.channel_7_plot.setGeometry(QtCore.QRect(160, 660, 131, 35))
+        self.channel_7_plot.setObjectName("channel_7_plot")
+        self.channel_8_text = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_8_text.setEnabled(False)
+        self.channel_8_text.setGeometry(QtCore.QRect(17, 737, 141, 41))
+        self.channel_8_text.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_8_text.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.channel_8_text.setScaledContents(False)
+        self.channel_8_text.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.channel_8_text.setObjectName("channel_8_text")
+        self.channel_8_title = QtWidgets.QLabel(self.groupBox_5)
+        self.channel_8_title.setGeometry(QtCore.QRect(20, 710, 161, 21))
+        self.channel_8_title.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.channel_8_title.setObjectName("channel_8_title")
+        self.channel_8_plot = PlotWidget(self.groupBox_5)
+        self.channel_8_plot.setEnabled(False)
+        self.channel_8_plot.setGeometry(QtCore.QRect(160, 740, 131, 35))
+        self.channel_8_plot.setObjectName("channel_8_plot")
+        self.z1_7 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1_7.setEnabled(False)
+        self.z1_7.setGeometry(QtCore.QRect(157, 577, 137, 41))
+        self.z1_7.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1_7.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1_7.setText("")
+        self.z1_7.setScaledContents(False)
+        self.z1_7.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1_7.setObjectName("z1_7")
+        self.z1_8 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1_8.setEnabled(False)
+        self.z1_8.setGeometry(QtCore.QRect(157, 657, 137, 41))
+        self.z1_8.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1_8.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1_8.setText("")
+        self.z1_8.setScaledContents(False)
+        self.z1_8.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1_8.setObjectName("z1_8")
+        self.z1_9 = QtWidgets.QLabel(self.groupBox_5)
+        self.z1_9.setEnabled(False)
+        self.z1_9.setGeometry(QtCore.QRect(157, 737, 137, 41))
+        self.z1_9.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 20pt;\n"
+"\n"
+"    background-color: transparent;\n"
+"    color: #fff;\n"
+"\n"
+"}")
+        self.z1_9.setFrameShape(QtWidgets.QFrame.Shape.Box)
+        self.z1_9.setText("")
+        self.z1_9.setScaledContents(False)
+        self.z1_9.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTrailing|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.z1_9.setObjectName("z1_9")
+        self.receiver_channel_title = QtWidgets.QLabel(self.tab)
+        self.receiver_channel_title.setGeometry(QtCore.QRect(1620, 10, 261, 41))
+        self.receiver_channel_title.setStyleSheet("")
+        self.receiver_channel_title.setObjectName("receiver_channel_title")
+        self.onboard_sensors_title = QtWidgets.QLabel(self.tab)
+        self.onboard_sensors_title.setGeometry(QtCore.QRect(1120, 430, 311, 41))
+        self.onboard_sensors_title.setStyleSheet("")
+        self.onboard_sensors_title.setObjectName("onboard_sensors_title")
+        self.groupBox_7 = QtWidgets.QGroupBox(self.tab)
+        self.groupBox_7.setGeometry(QtCore.QRect(890, 460, 331, 201))
+        self.groupBox_7.setTitle("")
+        self.groupBox_7.setObjectName("groupBox_7")
+        self.pitch_roll_graph_label_2 = QtWidgets.QLabel(self.groupBox_7)
+        self.pitch_roll_graph_label_2.setGeometry(QtCore.QRect(20, 40, 51, 51))
+        self.pitch_roll_graph_label_2.setText("")
+        self.pitch_roll_graph_label_2.setPixmap(QtGui.QPixmap(".\\files\\temp_sensor.png"))
+        self.pitch_roll_graph_label_2.setScaledContents(True)
+        self.pitch_roll_graph_label_2.setObjectName("pitch_roll_graph_label_2")
+        self.temp_sensor_text = QtWidgets.QLabel(self.groupBox_7)
+        self.temp_sensor_text.setGeometry(QtCore.QRect(90, 40, 171, 41))
+        self.temp_sensor_text.setStyleSheet("")
+        self.temp_sensor_text.setObjectName("temp_sensor_text")
+        self.tem1 = QtWidgets.QLCDNumber(self.groupBox_7)
+        self.tem1.setGeometry(QtCore.QRect(100, 137, 101, 41))
+        self.tem1.setDigitCount(5)
+        self.tem1.setProperty("value", 0.0)
+        self.tem1.setProperty("intValue", 0)
+        self.tem1.setObjectName("tem1")
+        self.sensor_verileri_title_32 = QtWidgets.QLabel(self.groupBox_7)
+        self.sensor_verileri_title_32.setGeometry(QtCore.QRect(210, 130, 171, 41))
+        self.sensor_verileri_title_32.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 18pt;\n"
 "    font-weight: bold;\n"
 "}")
-        self.sensor_verileri_title_29.setObjectName("sensor_verileri_title_29")
+        self.sensor_verileri_title_32.setObjectName("sensor_verileri_title_32")
+        self.line_5 = QtWidgets.QFrame(self.groupBox_7)
+        self.line_5.setGeometry(QtCore.QRect(10, 110, 311, 16))
+        self.line_5.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.line_5.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.line_5.setObjectName("line_5")
+        self.groupBox_10 = QtWidgets.QGroupBox(self.tab)
+        self.groupBox_10.setGeometry(QtCore.QRect(1230, 650, 331, 201))
+        self.groupBox_10.setTitle("")
+        self.groupBox_10.setObjectName("groupBox_10")
+        self.pitch_roll_graph_label_4 = QtWidgets.QLabel(self.groupBox_10)
+        self.pitch_roll_graph_label_4.setGeometry(QtCore.QRect(20, 40, 51, 51))
+        self.pitch_roll_graph_label_4.setText("")
+        self.pitch_roll_graph_label_4.setPixmap(QtGui.QPixmap(".\\files\\compas.png"))
+        self.pitch_roll_graph_label_4.setScaledContents(True)
+        self.pitch_roll_graph_label_4.setObjectName("pitch_roll_graph_label_4")
+        self.compass_sensor_text = QtWidgets.QLabel(self.groupBox_10)
+        self.compass_sensor_text.setGeometry(QtCore.QRect(90, 40, 171, 41))
+        self.compass_sensor_text.setStyleSheet("")
+        self.compass_sensor_text.setObjectName("compass_sensor_text")
+        self.total_esc_lcd_4 = QtWidgets.QLCDNumber(self.groupBox_10)
+        self.total_esc_lcd_4.setGeometry(QtCore.QRect(100, 137, 101, 41))
+        self.total_esc_lcd_4.setDigitCount(5)
+        self.total_esc_lcd_4.setProperty("value", 0.0)
+        self.total_esc_lcd_4.setProperty("intValue", 0)
+        self.total_esc_lcd_4.setObjectName("total_esc_lcd_4")
+        self.sensor_verileri_title_34 = QtWidgets.QLabel(self.groupBox_10)
+        self.sensor_verileri_title_34.setGeometry(QtCore.QRect(210, 130, 171, 41))
+        self.sensor_verileri_title_34.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 18pt;\n"
+"    font-weight: bold;\n"
+"}")
+        self.sensor_verileri_title_34.setObjectName("sensor_verileri_title_34")
+        self.line_7 = QtWidgets.QFrame(self.groupBox_10)
+        self.line_7.setGeometry(QtCore.QRect(10, 110, 311, 16))
+        self.line_7.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.line_7.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.line_7.setObjectName("line_7")
+        self.groupBox_11 = QtWidgets.QGroupBox(self.tab)
+        self.groupBox_11.setGeometry(QtCore.QRect(1230, 460, 331, 201))
+        self.groupBox_11.setTitle("")
+        self.groupBox_11.setObjectName("groupBox_11")
+        self.pitch_roll_graph_label_5 = QtWidgets.QLabel(self.groupBox_11)
+        self.pitch_roll_graph_label_5.setGeometry(QtCore.QRect(20, 40, 51, 51))
+        self.pitch_roll_graph_label_5.setText("")
+        self.pitch_roll_graph_label_5.setPixmap(QtGui.QPixmap(".\\files\\gps_sensor.png"))
+        self.pitch_roll_graph_label_5.setScaledContents(True)
+        self.pitch_roll_graph_label_5.setObjectName("pitch_roll_graph_label_5")
+        self.gps_sensor_text = QtWidgets.QLabel(self.groupBox_11)
+        self.gps_sensor_text.setGeometry(QtCore.QRect(90, 40, 171, 41))
+        self.gps_sensor_text.setStyleSheet("")
+        self.gps_sensor_text.setObjectName("gps_sensor_text")
+        self.total_esc_lcd_5 = QtWidgets.QLCDNumber(self.groupBox_11)
+        self.total_esc_lcd_5.setGeometry(QtCore.QRect(100, 137, 101, 41))
+        self.total_esc_lcd_5.setDigitCount(5)
+        self.total_esc_lcd_5.setProperty("value", 0.0)
+        self.total_esc_lcd_5.setProperty("intValue", 0)
+        self.total_esc_lcd_5.setObjectName("total_esc_lcd_5")
+        self.sensor_verileri_title_35 = QtWidgets.QLabel(self.groupBox_11)
+        self.sensor_verileri_title_35.setGeometry(QtCore.QRect(210, 143, 171, 41))
+        self.sensor_verileri_title_35.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 18pt;\n"
+"    font-weight: bold;\n"
+"}")
+        self.sensor_verileri_title_35.setObjectName("sensor_verileri_title_35")
+        self.line_8 = QtWidgets.QFrame(self.groupBox_11)
+        self.line_8.setGeometry(QtCore.QRect(10, 110, 311, 16))
+        self.line_8.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.line_8.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.line_8.setObjectName("line_8")
+        self.groupBox_6 = QtWidgets.QGroupBox(self.tab)
+        self.groupBox_6.setGeometry(QtCore.QRect(890, 39, 671, 381))
+        self.groupBox_6.setTitle("")
+        self.groupBox_6.setObjectName("groupBox_6")
+        self.data_chart_text = QtWidgets.QLabel(self.tab)
+        self.data_chart_text.setGeometry(QtCore.QRect(1140, 10, 311, 41))
+        self.data_chart_text.setStyleSheet("")
+        self.data_chart_text.setObjectName("data_chart_text")
+        self.groupBox_8 = QtWidgets.QGroupBox(self.tab)
+        self.groupBox_8.setGeometry(QtCore.QRect(890, 650, 331, 201))
+        self.groupBox_8.setTitle("")
+        self.groupBox_8.setObjectName("groupBox_8")
+        self.pitch_roll_graph_label_3 = QtWidgets.QLabel(self.groupBox_8)
+        self.pitch_roll_graph_label_3.setGeometry(QtCore.QRect(20, 40, 51, 51))
+        self.pitch_roll_graph_label_3.setText("")
+        self.pitch_roll_graph_label_3.setPixmap(QtGui.QPixmap(".\\files\\barometer_sensor.png"))
+        self.pitch_roll_graph_label_3.setScaledContents(True)
+        self.pitch_roll_graph_label_3.setObjectName("pitch_roll_graph_label_3")
+        self.barometer_sensor_text = QtWidgets.QLabel(self.groupBox_8)
+        self.barometer_sensor_text.setGeometry(QtCore.QRect(90, 40, 171, 41))
+        self.barometer_sensor_text.setStyleSheet("")
+        self.barometer_sensor_text.setObjectName("barometer_sensor_text")
+        self.total_esc_lcd_3 = QtWidgets.QLCDNumber(self.groupBox_8)
+        self.total_esc_lcd_3.setGeometry(QtCore.QRect(100, 137, 101, 41))
+        self.total_esc_lcd_3.setDigitCount(5)
+        self.total_esc_lcd_3.setProperty("value", 0.0)
+        self.total_esc_lcd_3.setProperty("intValue", 0)
+        self.total_esc_lcd_3.setObjectName("total_esc_lcd_3")
+        self.sensor_verileri_title_33 = QtWidgets.QLabel(self.groupBox_8)
+        self.sensor_verileri_title_33.setGeometry(QtCore.QRect(205, 145, 171, 41))
+        self.sensor_verileri_title_33.setStyleSheet("QLabel\n"
+"{\n"
+"    font-family: Arial;\n"
+"    font-style: normal;\n"
+"    font-size: 18pt;\n"
+"    font-weight: bold;\n"
+"}")
+        self.sensor_verileri_title_33.setObjectName("sensor_verileri_title_33")
+        self.line_6 = QtWidgets.QFrame(self.groupBox_8)
+        self.line_6.setGeometry(QtCore.QRect(10, 110, 311, 16))
+        self.line_6.setFrameShape(QtWidgets.QFrame.Shape.HLine)
+        self.line_6.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
+        self.line_6.setObjectName("line_6")
         self.tabWidget.addTab(self.tab, "")
         self.widget = QtWidgets.QWidget()
         self.widget.setObjectName("widget")
@@ -1924,16 +2229,13 @@ class Ui_FC(object):
         self.widget_2.setGeometry(QtCore.QRect(610, 30, 581, 581))
         self.widget_2.setObjectName("widget_2")
         self.tabWidget.addTab(self.widget, "")
-        self.arm_button = QtWidgets.QPushButton(self.centralwidget)
-        self.arm_button.setGeometry(QtCore.QRect(10, 10, 116, 51))
-        self.arm_button.setObjectName("arm_button")
-        self.disarm_button = QtWidgets.QPushButton(self.centralwidget)
-        self.disarm_button.setGeometry(QtCore.QRect(135, 10, 116, 51))
-        self.disarm_button.setObjectName("disarm_button")
         self.debug_button = QtWidgets.QPushButton(self.centralwidget)
         self.debug_button.setEnabled(True)
-        self.debug_button.setGeometry(QtCore.QRect(10, 70, 241, 51))
+        self.debug_button.setGeometry(QtCore.QRect(10, 10, 241, 61))
         self.debug_button.setObjectName("debug_button")
+        self.exitButton = QtWidgets.QPushButton(self.centralwidget)
+        self.exitButton.setGeometry(QtCore.QRect(1810, 10, 101, 61))
+        self.exitButton.setObjectName("exitButton")
         FC.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(FC)
@@ -1965,6 +2267,9 @@ class Ui_FC(object):
         self.latencyArayuz.setText(_translate("FC", "0"))
         self.latencyArayuzTitle.setText(_translate("FC", "  MS"))
         self.deviceModeTitle_2.setText(_translate("FC", "Com Buffers :"))
+        self.scanPortButton.setText(_translate("FC", "Scan Ports"))
+        self.moduleSelectionBox.setPlaceholderText(_translate("FC", "--- Modules ---"))
+        self.portTitle_3.setText(_translate("FC", "Module :"))
         self.total_esc_text.setText(_translate("FC", "TOTAL"))
         self.esc_1_text.setText(_translate("FC", "ESC 1"))
         self.esc_2_text.setText(_translate("FC", "ESC 2"))
@@ -1990,26 +2295,41 @@ class Ui_FC(object):
         self.label_7.setText(_translate("FC", "1000"))
         self.pid_lock_unlock_button.setText(_translate("FC", "Unlock"))
         self.set_default_pid.setText(_translate("FC", "Set Default PID"))
-        self.sensor_verileri_title_27.setText(_translate("FC", "PID Configurations"))
-        self.sensor_verileri_title_28.setText(_translate("FC", "ESC Configurations"))
-        self.channel_5_title.setText(_translate("FC", "Channel 5"))
+        self.pid_configuration_title.setText(_translate("FC", "PID Configurations"))
+        self.esc_config_title.setText(_translate("FC", "ESC Config"))
+        self.channel_5_title.setText(_translate("FC", "Channel 6"))
         self.channel_2_text.setText(_translate("FC", "0"))
         self.channel_5_text.setText(_translate("FC", "0"))
-        self.channel_1_title.setText(_translate("FC", "Channel 1"))
-        self.channel_0_title.setText(_translate("FC", "Channel 0"))
-        self.channel_4_title.setText(_translate("FC", "Channel 4"))
+        self.channel_1_title.setText(_translate("FC", "Channel 2"))
+        self.channel_0_title.setText(_translate("FC", "Channel 1"))
+        self.channel_4_title.setText(_translate("FC", "Channel 5"))
         self.channel_4_text.setText(_translate("FC", "0"))
         self.channel_0_text.setText(_translate("FC", "0"))
-        self.channel_3_title.setText(_translate("FC", "Channel 3"))
-        self.channel_2_title.setText(_translate("FC", "Channel 2"))
+        self.channel_3_title.setText(_translate("FC", "Channel 4"))
+        self.channel_2_title.setText(_translate("FC", "Channel 3"))
         self.channel_1_text.setText(_translate("FC", "0"))
         self.channel_3_text.setText(_translate("FC", "0"))
-        self.sensor_verileri_title_29.setText(_translate("FC", "Receiver Channels"))
+        self.channel_6_text.setText(_translate("FC", "0"))
+        self.channel_6_title.setText(_translate("FC", "Channel 7"))
+        self.channel_7_text.setText(_translate("FC", "0"))
+        self.channel_7_title.setText(_translate("FC", "Channel 8"))
+        self.channel_8_text.setText(_translate("FC", "0"))
+        self.channel_8_title.setText(_translate("FC", "Channel 9"))
+        self.receiver_channel_title.setText(_translate("FC", "Receiver Channels"))
+        self.onboard_sensors_title.setText(_translate("FC", "Onboard Sensors"))
+        self.temp_sensor_text.setText(_translate("FC", "Temperature"))
+        self.sensor_verileri_title_32.setText(_translate("FC", "°"))
+        self.compass_sensor_text.setText(_translate("FC", "Compass"))
+        self.sensor_verileri_title_34.setText(_translate("FC", "°"))
+        self.gps_sensor_text.setText(_translate("FC", "GPS"))
+        self.sensor_verileri_title_35.setText(_translate("FC", "SAT"))
+        self.data_chart_text.setText(_translate("FC", "Data Chart"))
+        self.barometer_sensor_text.setText(_translate("FC", "Barometer"))
+        self.sensor_verileri_title_33.setText(_translate("FC", "m"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("FC", "FC Configurations"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.widget), _translate("FC", "Mission Planner"))
-        self.arm_button.setText(_translate("FC", "ARM"))
-        self.disarm_button.setText(_translate("FC", "DISARM"))
         self.debug_button.setText(_translate("FC", "DEBUG MODE"))
+        self.exitButton.setText(_translate("FC", "EXIT"))
 from pyqtgraph import PlotWidget
 
 

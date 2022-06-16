@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1240</width>
-    <height>791</height>
+    <width>1921</width>
+    <height>1031</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1240</width>
-    <height>791</height>
+    <width>1921</width>
+    <height>1030</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1240</width>
-    <height>791</height>
+    <width>1921</width>
+    <height>1080</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -1021,7 +1021,7 @@ QProgressBar::chunk
      <rect>
       <x>260</x>
       <y>-10</y>
-      <width>971</width>
+      <width>1541</width>
       <height>161</height>
      </rect>
     </property>
@@ -1058,12 +1058,15 @@ QProgressBar::chunk
      </property>
     </widget>
     <widget class="QTextEdit" name="terminalBox">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>260</x>
-       <y>30</y>
-       <width>421</width>
-       <height>121</height>
+       <x>430</x>
+       <y>31</y>
+       <width>821</width>
+       <height>119</height>
       </rect>
      </property>
      <property name="verticalScrollBarPolicy">
@@ -1071,6 +1074,9 @@ QProgressBar::chunk
      </property>
      <property name="sizeAdjustPolicy">
       <enum>QAbstractScrollArea::AdjustIgnored</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
      <property name="html">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -1083,7 +1089,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QGroupBox" name="deviceModes">
      <property name="geometry">
       <rect>
-       <x>690</x>
+       <x>1260</x>
        <y>10</y>
        <width>121</width>
        <height>141</height>
@@ -1204,9 +1210,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="initializeModule">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>120</y>
-       <width>221</width>
+       <x>250</x>
+       <y>80</y>
+       <width>161</width>
        <height>31</height>
       </rect>
      </property>
@@ -1246,7 +1252,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QGroupBox" name="bufferInfoBox">
      <property name="geometry">
       <rect>
-       <x>820</x>
+       <x>1390</x>
        <y>10</y>
        <width>141</width>
        <height>141</height>
@@ -1359,6 +1365,48 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </widget>
+    <widget class="QPushButton" name="scanPortButton">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>40</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Scan Ports</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="moduleSelectionBox">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>120</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="currentText">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>--- Modules ---</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="portTitle_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>125</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Module :</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QTabWidget" name="tabWidget">
     <property name="enabled">
@@ -1368,8 +1416,8 @@ p, li { white-space: pre-wrap; }
      <rect>
       <x>10</x>
       <y>130</y>
-      <width>1221</width>
-      <height>651</height>
+      <width>1901</width>
+      <height>891</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -1391,27 +1439,37 @@ p, li { white-space: pre-wrap; }
         <x>10</x>
         <y>250</y>
         <width>871</width>
-        <height>361</height>
+        <height>601</height>
        </rect>
       </property>
       <property name="title">
        <string/>
       </property>
-      <widget class="PlotWidget" name="angleGraph">
+      <widget class="PlotWidget" name="pitchGraph">
        <property name="geometry">
         <rect>
          <x>15</x>
          <y>40</y>
          <width>841</width>
-         <height>301</height>
+         <height>250</height>
         </rect>
        </property>
       </widget>
-      <widget class="QLabel" name="label">
+      <widget class="PlotWidget" name="rollGraph">
        <property name="geometry">
         <rect>
-         <x>720</x>
-         <y>290</y>
+         <x>15</x>
+         <y>300</y>
+         <width>841</width>
+         <height>250</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="pitch_roll_graph_label">
+       <property name="geometry">
+        <rect>
+         <x>740</x>
+         <y>540</y>
          <width>111</width>
          <height>51</height>
         </rect>
@@ -2419,57 +2477,45 @@ QSlider::handle:horizontal:disabled
        </property>
       </widget>
      </widget>
-     <widget class="QLabel" name="sensor_verileri_title_27">
+     <widget class="QLabel" name="pid_configuration_title">
       <property name="geometry">
        <rect>
-        <x>210</x>
+        <x>190</x>
         <y>10</y>
-        <width>181</width>
+        <width>361</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLabel
-{
-	font-family: Arial;
-	font-style: normal;
-	font-size: 15pt;
-	font-weight: bold;
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>PID Configurations</string>
       </property>
      </widget>
-     <widget class="QLabel" name="sensor_verileri_title_28">
+     <widget class="QLabel" name="esc_config_title">
       <property name="geometry">
        <rect>
-        <x>630</x>
+        <x>650</x>
         <y>10</y>
         <width>211</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLabel
-{
-	font-family: Arial;
-	font-style: normal;
-	font-size: 15pt;
-	font-weight: bold;
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
-       <string>ESC Configurations</string>
+       <string>ESC Config</string>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
        <rect>
-        <x>890</x>
+        <x>1570</x>
         <y>40</y>
         <width>321</width>
-        <height>571</height>
+        <height>811</height>
        </rect>
       </property>
       <property name="title">
@@ -3147,28 +3193,811 @@ QSlider::handle:horizontal:disabled
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
+      <widget class="QLabel" name="channel_6_text">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>17</x>
+         <y>577</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 20pt;
+	font-weight: bold;
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="PlotWidget" name="channel_6_plot">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>580</y>
+         <width>131</width>
+         <height>35</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="channel_6_title">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>550</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 10pt;
+	font-weight: bold;
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="text">
+        <string>Channel 7</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="channel_7_text">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>17</x>
+         <y>657</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 20pt;
+	font-weight: bold;
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="channel_7_title">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>630</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 10pt;
+	font-weight: bold;
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="text">
+        <string>Channel 8</string>
+       </property>
+      </widget>
+      <widget class="PlotWidget" name="channel_7_plot">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>660</y>
+         <width>131</width>
+         <height>35</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="channel_8_text">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>17</x>
+         <y>737</y>
+         <width>141</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 20pt;
+	font-weight: bold;
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="channel_8_title">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>710</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 10pt;
+	font-weight: bold;
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="text">
+        <string>Channel 9</string>
+       </property>
+      </widget>
+      <widget class="PlotWidget" name="channel_8_plot">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>740</y>
+         <width>131</width>
+         <height>35</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="z1_7">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>157</x>
+         <y>577</y>
+         <width>137</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 20pt;
+
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="z1_8">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>157</x>
+         <y>657</y>
+         <width>137</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 20pt;
+
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="z1_9">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>157</x>
+         <y>737</y>
+         <width>137</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 20pt;
+
+	background-color: transparent;
+	color: #fff;
+
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
      </widget>
-     <widget class="QLabel" name="sensor_verileri_title_29">
+     <widget class="QLabel" name="receiver_channel_title">
       <property name="geometry">
        <rect>
-        <x>960</x>
+        <x>1620</x>
         <y>10</y>
-        <width>211</width>
+        <width>261</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QLabel
-{
-	font-family: Arial;
-	font-style: normal;
-	font-size: 15pt;
-	font-weight: bold;
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Receiver Channels</string>
       </property>
+     </widget>
+     <widget class="QLabel" name="onboard_sensors_title">
+      <property name="geometry">
+       <rect>
+        <x>1120</x>
+        <y>430</y>
+        <width>311</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Onboard Sensors</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_7">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>460</y>
+        <width>331</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="pitch_roll_graph_label_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>temp_sensor.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="temp_sensor_text">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>40</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Temperature</string>
+       </property>
+      </widget>
+      <widget class="QLCDNumber" name="tem1">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>137</y>
+         <width>101</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="digitCount">
+        <number>5</number>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="intValue" stdset="0">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="sensor_verileri_title_32">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>130</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 18pt;
+	font-weight: bold;
+}</string>
+       </property>
+       <property name="text">
+        <string>°</string>
+       </property>
+      </widget>
+      <widget class="Line" name="line_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>311</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_10">
+      <property name="geometry">
+       <rect>
+        <x>1230</x>
+        <y>650</y>
+        <width>331</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="pitch_roll_graph_label_4">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>compas.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="compass_sensor_text">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>40</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Compass</string>
+       </property>
+      </widget>
+      <widget class="QLCDNumber" name="total_esc_lcd_4">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>137</y>
+         <width>101</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="digitCount">
+        <number>5</number>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="intValue" stdset="0">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="sensor_verileri_title_34">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>130</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 18pt;
+	font-weight: bold;
+}</string>
+       </property>
+       <property name="text">
+        <string>°</string>
+       </property>
+      </widget>
+      <widget class="Line" name="line_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>311</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_11">
+      <property name="geometry">
+       <rect>
+        <x>1230</x>
+        <y>460</y>
+        <width>331</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="pitch_roll_graph_label_5">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>gps_sensor.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="gps_sensor_text">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>40</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>GPS</string>
+       </property>
+      </widget>
+      <widget class="QLCDNumber" name="total_esc_lcd_5">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>137</y>
+         <width>101</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="digitCount">
+        <number>5</number>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="intValue" stdset="0">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="sensor_verileri_title_35">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>143</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 18pt;
+	font-weight: bold;
+}</string>
+       </property>
+       <property name="text">
+        <string>SAT</string>
+       </property>
+      </widget>
+      <widget class="Line" name="line_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>311</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>39</y>
+        <width>671</width>
+        <height>381</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="data_chart_text">
+      <property name="geometry">
+       <rect>
+        <x>1140</x>
+        <y>10</y>
+        <width>311</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string>Data Chart</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_8">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>650</y>
+        <width>331</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="pitch_roll_graph_label_3">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>51</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>barometer_sensor.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="barometer_sensor_text">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>40</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>Barometer</string>
+       </property>
+      </widget>
+      <widget class="QLCDNumber" name="total_esc_lcd_3">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>137</y>
+         <width>101</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="digitCount">
+        <number>5</number>
+       </property>
+       <property name="value" stdset="0">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="intValue" stdset="0">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="sensor_verileri_title_33">
+       <property name="geometry">
+        <rect>
+         <x>205</x>
+         <y>145</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel
+{
+	font-family: Arial;
+	font-style: normal;
+	font-size: 18pt;
+	font-weight: bold;
+}</string>
+       </property>
+       <property name="text">
+        <string>m</string>
+       </property>
+      </widget>
+      <widget class="Line" name="line_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>311</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="widget">
@@ -3200,32 +4029,6 @@ QSlider::handle:horizontal:disabled
      </widget>
     </widget>
    </widget>
-   <widget class="QPushButton" name="arm_button">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>116</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ARM</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="disarm_button">
-    <property name="geometry">
-     <rect>
-      <x>135</x>
-      <y>10</y>
-      <width>116</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>DISARM</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="debug_button">
     <property name="enabled">
      <bool>true</bool>
@@ -3233,13 +4036,26 @@ QSlider::handle:horizontal:disabled
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>70</y>
+      <y>10</y>
       <width>241</width>
-      <height>51</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
      <string>DEBUG MODE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exitButton">
+    <property name="geometry">
+     <rect>
+      <x>1810</x>
+      <y>10</y>
+      <width>101</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EXIT</string>
     </property>
    </widget>
   </widget>
