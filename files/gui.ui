@@ -2338,7 +2338,7 @@ QSlider::handle:horizontal:disabled
         </rect>
        </property>
        <property name="maximum">
-        <number>10000</number>
+        <number>1000</number>
        </property>
        <property name="pageStep">
         <number>1</number>
@@ -2388,14 +2388,14 @@ QSlider::handle:horizontal:disabled
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>528</x>
+         <x>530</x>
          <y>50</y>
          <width>49</width>
          <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>10</string>
+        <string>5</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_4">
@@ -2414,14 +2414,14 @@ QSlider::handle:horizontal:disabled
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>520</x>
+         <x>530</x>
          <y>90</y>
          <width>49</width>
          <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>0.01</string>
+        <string>1</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_6">
@@ -2447,7 +2447,7 @@ QSlider::handle:horizontal:disabled
         </rect>
        </property>
        <property name="text">
-        <string>1000</string>
+        <string>100</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pid_lock_unlock_button">

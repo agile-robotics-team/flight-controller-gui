@@ -146,12 +146,12 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.pitchGraph.setMouseEnabled(x=False, y=False)
         self.ui.pitchGraph.setBackground(background=None)
         self.ui.pitchGraph.getPlotItem().hideAxis('bottom')
-        self.ui.pitchGraph.setRange(yRange=[-25,25])
+        self.ui.pitchGraph.setRange(yRange=[-90,90])
         
         self.ui.rollGraph.setMouseEnabled(x=False, y=False)
         self.ui.rollGraph.setBackground(background=None)
         self.ui.rollGraph.getPlotItem().hideAxis('bottom')
-        self.ui.rollGraph.setRange(yRange=[-25,25])
+        self.ui.rollGraph.setRange(yRange=[-90,90])
 
         self.ui.channel_0_plot.hideAxis('bottom')
         self.ui.channel_0_plot.hideAxis('left') 
@@ -330,31 +330,31 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.esc_4.setValue(val - 1000)
     def pid_p_update(self):
         val = self.ui.pid_p_slider.value()
-        val_text = str(val / 100 )
+        val_text = str(val / 200)
         self.ui.pitch_p_text.setText(val_text)
         self.ui.roll_p_text.setText(val_text)
-        try: 
+        '''try: 
             self.ser.txBuffer.append(f"SPP{val}")
             self.ser.txBuffer.append(f"SRP{val}")
-        except: pass
+        except: pass'''
     def pid_i_update(self):
         val = self.ui.pid_i_slider.value()
-        val_text = str(val / 100000 )
+        val_text = str(val / 1 )
         self.ui.pitch_i_text.setText(val_text)
         self.ui.roll_i_text.setText(val_text)
-        try:
+        '''try:
             self.ser.txBuffer.append(f"SPI{val}")
             self.ser.txBuffer.append(f"SRI{val}")
-        except: pass
+        except: pass'''
     def pid_d_update(self):
         val = self.ui.pid_d_slider.value()
-        val_text = str(val)
+        val_text = str(val / 10)
         self.ui.pitch_d_text.setText(val_text)
         self.ui.roll_d_text.setText(val_text)
-        try:
+        '''try:
             self.ser.txBuffer.append(f"SPD{val}") 
             self.ser.txBuffer.append(f"SRD{val}")
-        except: pass
+        except: pass'''
     def set_default_pid_reporter(self):
         self.ui.pid_p_slider.setValue(self.pid_p_default)
         self.ui.pid_i_slider.setValue(self.pid_i_default)
@@ -366,12 +366,12 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ser.txBuffer.append("GRP")
         self.ser.txBuffer.append("GRI")
         self.ser.txBuffer.append("GRD")
-    def gpp_signal_update(self, val):  self.ui.pid_p_slider.setValue(val)
-    def gpi_signal_update(self, val):  self.ui.pid_i_slider.setValue(val)
-    def gpd_signal_update(self, val):  self.ui.pid_d_slider.setValue(val)
-    def grp_signal_update(self, val):  self.ui.pid_p_slider.setValue(val)
-    def gri_signal_update(self, val):  self.ui.pid_i_slider.setValue(val)
-    def grd_signal_update(self, val):  self.ui.pid_d_slider.setValue(val)
+    def gpp_signal_update(self, val):  self.ui.pid_p_slider.setValue(int(float(val)*200))
+    def gpi_signal_update(self, val):  self.ui.pid_i_slider.setValue(int(float(val)*1))
+    def gpd_signal_update(self, val):  self.ui.pid_d_slider.setValue(int(float(val)*10))
+    def grp_signal_update(self, val):  self.ui.pid_p_slider.setValue(int(float(val)*200))
+    def gri_signal_update(self, val):  self.ui.pid_i_slider.setValue(int(float(val)*1))
+    def grd_signal_update(self, val):  self.ui.pid_d_slider.setValue(int(float(val)*10))
     def txBufferTextUpdate(self, val): self.ui.tx_buffer.setText(str(val))
     def rxBufferTextUpdate(self, val): self.ui.rx_buffer.setText(str(val))
     def ch0_update(self, val): self.ui.channel_0_text.setText(val)

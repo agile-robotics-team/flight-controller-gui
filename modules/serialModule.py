@@ -31,12 +31,12 @@ class serialHandler(QtCore.QThread):
     ch6_signal      = QtCore.pyqtSignal(str)
     ch7_signal      = QtCore.pyqtSignal(str)
     ch8_signal      = QtCore.pyqtSignal(str)
-    gpp_signal      = QtCore.pyqtSignal(int)
-    gpi_signal      = QtCore.pyqtSignal(int)
-    gpd_signal      = QtCore.pyqtSignal(int)
-    grp_signal      = QtCore.pyqtSignal(int)
-    gri_signal      = QtCore.pyqtSignal(int)
-    grd_signal      = QtCore.pyqtSignal(int)
+    gpp_signal      = QtCore.pyqtSignal(float)
+    gpi_signal      = QtCore.pyqtSignal(float)
+    gpd_signal      = QtCore.pyqtSignal(float)
+    grp_signal      = QtCore.pyqtSignal(float)
+    gri_signal      = QtCore.pyqtSignal(float)
+    grd_signal      = QtCore.pyqtSignal(float)
     esc1_signal     = QtCore.pyqtSignal(int)
     esc2_signal     = QtCore.pyqtSignal(int)
     esc3_signal     = QtCore.pyqtSignal(int)
@@ -114,7 +114,7 @@ class serialHandler(QtCore.QThread):
                                 #print(type(data), len(data), data)
                                 self.buffers.rxBuffer.append(loads(data))
                                 #print(loads(data))
-                            except: pass
+                            except Exception as e: print(e)
                         
                     except: print("Serial Reading Error")
                 if len(self.buffers.rxBuffer) > 0:
@@ -133,26 +133,22 @@ class serialHandler(QtCore.QThread):
                                 self.angles_list[1].append(self.buffers.rxBuffer[0]['RD'])
                             else: self.angles_list[1].append(self.buffers.rxBuffer[0]['RD'])
                             self.angles.emit(self.angles_list)
-
                         if 'GM' in self.buffers.rxBuffer[0].keys():
                             device_mode = self.buffers.rxBuffer[0]['GM']
                             if device_mode == 0: self.mode_signal.emit('BOOT Mode')
                             elif device_mode == 1: self.mode_signal.emit('STABILIZED Mode')
                             elif device_mode == 2: self.mode_signal.emit('DEBUG Mode')
                             else: self.mode_signal.emit('ERROR Mode')
-
-                        if 'GPP' in self.buffers.rxBuffer[0].keys(): self.gpp_signal.emit(self.buffers.rxBuffer[0]['GPP'])
-                        if 'GPI' in self.buffers.rxBuffer[0].keys(): self.gpi_signal.emit(self.buffers.rxBuffer[0]['GPI'])
-                        if 'GPD' in self.buffers.rxBuffer[0].keys(): self.gpd_signal.emit(self.buffers.rxBuffer[0]['GPD'])
-                        if 'GRP' in self.buffers.rxBuffer[0].keys(): self.grp_signal.emit(self.buffers.rxBuffer[0]['GRP'])
-                        if 'GRI' in self.buffers.rxBuffer[0].keys(): self.gri_signal.emit(self.buffers.rxBuffer[0]['GRI'])
-                        if 'GRD' in self.buffers.rxBuffer[0].keys(): self.grd_signal.emit(self.buffers.rxBuffer[0]['GRD'])
-
+                        if 'GPP' in self.buffers.rxBuffer[0].keys(): self.gpp_signal.emit(float(self.buffers.rxBuffer[0]['GPP']))
+                        if 'GPI' in self.buffers.rxBuffer[0].keys(): self.gpi_signal.emit(float(self.buffers.rxBuffer[0]['GPI']))
+                        if 'GPD' in self.buffers.rxBuffer[0].keys(): self.gpd_signal.emit(float(self.buffers.rxBuffer[0]['GPD']))
+                        if 'GRP' in self.buffers.rxBuffer[0].keys(): self.grp_signal.emit(float(self.buffers.rxBuffer[0]['GRP']))
+                        if 'GRI' in self.buffers.rxBuffer[0].keys(): self.gri_signal.emit(float(self.buffers.rxBuffer[0]['GRI']))
+                        if 'GRD' in self.buffers.rxBuffer[0].keys(): self.grd_signal.emit(float(self.buffers.rxBuffer[0]['GRD']))
                         if 'ESC1' in self.buffers.rxBuffer[0].keys(): self.esc1_signal.emit(self.buffers.rxBuffer[0]['ESC1'])
                         if 'ESC2' in self.buffers.rxBuffer[0].keys(): self.esc2_signal.emit(self.buffers.rxBuffer[0]['ESC2'])
                         if 'ESC3' in self.buffers.rxBuffer[0].keys(): self.esc3_signal.emit(self.buffers.rxBuffer[0]['ESC3'])
                         if 'ESC4' in self.buffers.rxBuffer[0].keys(): self.esc4_signal.emit(self.buffers.rxBuffer[0]['ESC4'])
-                     
                         if 'CH1' in self.buffers.rxBuffer[0].keys():                             
                             self.ch0.append(int(self.buffers.rxBuffer[0]['CH1']))
                             self.ch0_signal.emit(str(self.buffers.rxBuffer[0]['CH1']))
@@ -204,7 +200,6 @@ class serialHandler(QtCore.QThread):
                             self.ch8_signal.emit(data[8])
 
                             self.receiver_data_signal.emit([self.ch0, self.ch1, self.ch2, self.ch3, self.ch4, self.ch5, self.ch6, self.ch7, self.ch8])
-                        
                         if 'TEM1' in self.buffers.rxBuffer[0].keys(): self.tem1_signal.emit(self.buffers.rxBuffer[0]['TEM1'])
 
                     else:     
@@ -212,7 +207,6 @@ class serialHandler(QtCore.QThread):
                             ms = int((time() - float(self.buffers.rxBuffer[0]))*1000) 
                             self.latency_signal.emit(ms)
                         except : pass
-
                     self.buffers.rxBuffer.pop(0) 
                 
                 # latency check
