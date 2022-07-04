@@ -1,5 +1,4 @@
 #libraries for gui
-from functools import cache
 from files.graphical_interface import *
 from modules.serialModule import *
 from collections import deque
@@ -235,7 +234,6 @@ class Arayuz(QtWidgets.QMainWindow):
             elif status == "WARNING": self.ui.terminalBox.insertHtml(f'<br><font color={self.warning_color  }><strong>WARNING :: </strong></font><font color="white">{msg}</font>')
             elif status == "SUCCESS": self.ui.terminalBox.insertHtml(f'<br><font color={self.success_color  }><strong>SUCCESS :: </strong></font><font color="white">{msg}</font>')
         self.ui.terminalBox.verticalScrollBar().setValue(self.ui.terminalBox.verticalScrollBar().maximum())
-
     def debug_mode(self):
         self.fc_mode = 1
         self.ser.txBuffer.append("SFM1")
@@ -248,7 +246,6 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.pid_get_values_button.setEnabled(True)
         self.ui.pid_lock_unlock_button.setEnabled(True)
         self.ui.set_default_pid.setEnabled(True) 
-
     def tem1_update(self, val): self.ui.tem1.display(float(int(val * 10)/10))
     def pid_lock_unlock(self):
         if self.pid_configurate_status == True:
