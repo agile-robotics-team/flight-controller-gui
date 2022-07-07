@@ -9,6 +9,12 @@ import sys
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 import io, folium
 
+import qtmodern.styles
+import qtmodern.windows
+
+model = "IMFC"
+version = "1.0"
+
 class Arayuz(QtWidgets.QMainWindow):
     
     def __init__(self):
@@ -18,8 +24,11 @@ class Arayuz(QtWidgets.QMainWindow):
         self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
         
         QtGui.QFontDatabase.addApplicationFont("files/font_main.ttf")
+        QtGui.QFontDatabase.addApplicationFont("files/font_regular.ttf")
+        QtGui.QFontDatabase.addApplicationFont("files/logo.otf")
         font_medium = QtGui.QFont("Tomorrow Medium", 18)
         font_regular = QtGui.QFont("Tomorrow", 17)
+        font_title = QtGui.QFont("Lakehurst Gothic Medium", 42)
         self.ui.temp_sensor_text.setFont(font_regular)
         self.ui.data_chart_text.setFont(font_medium)
         self.ui.barometer_sensor_text.setFont(font_regular)
@@ -29,7 +38,10 @@ class Arayuz(QtWidgets.QMainWindow):
         self.ui.pid_configuration_title.setFont(font_medium)
         self.ui.esc_config_title.setFont(font_medium)
         self.ui.receiver_channel_title.setFont(font_medium)
-        
+        self.ui.logo.setFont(font_title) 
+        self.ui.logo.setText(model)
+        self.ui.logo_version.setFont(QtGui.QFont("Lakehurst Gothic Medium", 8)) 
+        self.ui.logo_version.setText("V."+version)
 
         self.fc_mode = 0
         self.warning_color  = "#FF0F0F"
@@ -418,6 +430,10 @@ class Arayuz(QtWidgets.QMainWindow):
 if __name__ == "__main__": 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow() 
+
+    qtmodern.styles.light(app)
+    mw = qtmodern.windows.ModernWindow(MainWindow)
+
     ui = Arayuz()
     ui.showMaximized()
     sys.exit(app.exec())
